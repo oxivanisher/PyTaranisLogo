@@ -1,6 +1,7 @@
 # My Excludes
 output/*
 resources/*
+dist/*.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

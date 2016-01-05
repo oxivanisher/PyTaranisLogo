@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		{%- block head %}
+		<title>PyTaranisLogo {% block title %}{% endblock %}</title>
+		<meta property="og:title" content="PyTaranisLogo" />
+		<meta property="og:site_name" content="Index"/>
+		<meta name="description" content="Taranis boot logo creator">
+		<meta property="og:description" content="Taranis boot logo creator" />
+
+		<meta name="author" content="Marc Urben">
+		<meta property="og:url" content="{{ url_for('index', _external=True) }}" />
+		<meta property="og:image" content="{{ url_for('get_image', imgType='network', imgId='OpenGraph', _external = True) }}" />
+
+		<meta name="fragment" content="!">
+		<meta name="keywords" content="taranis,logo,fpvracing" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale:alternate" content="de_DE" />
+		{# Favicon -#}
+		<link rel="shortcut icon" href="{{ url_for('favicon') }}">
+		{# jQuery and jQueryUI -#}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+		<script src="{{ url_for('static', filename='jquery/jquery.cookie.js') }}"></script>
+		<link href="{{ url_for('static', filename='jquery/jquery-ui.css') }}" rel="stylesheet" />
+		<link href="{{ url_for('static', filename='jquery/jquery-ui.structure.min.css') }}" rel="stylesheet" />
+		<link href="{{ url_for('static', filename='jquery/jquery-ui.theme.min.css') }}" rel="stylesheet" />
+
+		{# Bootstrap -#}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		{# Font Awesome -#}
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" />
+		{# PyTaranisLogo internal stuff -#}
+		<link href="{{ url_for('static', filename='pytaranislogo.css') }}" rel="stylesheet" media="all" type="text/css" />
+		<script src="{{ url_for('static', filename='pytaranislogo.js') }}"></script>
+		{%- endblock %}
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				{# Brand and toggle get grouped for better mobile display -#}
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				 	<span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+				    </button>
+				    <a class="navbar-brand" href="{{ url_for('index') }}" rel="home" title="PyTaranisLogo"><img src="{{ url_for('favicon') }}" class="home_icon" alt="Logo"></a>
+				    {#- <span class="glyphicon glyphicon-home"> #}
+				</div>
+
+				{# Collect the nav links, forms, and other content for toggling -#}
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="{% if url_for('about') == request.path %}active{% endif %}"><a href="{{ url_for('about') }}"><span class="glyphicon glyphicon-question-sign"></span> About</a></li>
+					</ul>
+				</div>{# /.navbar-collapse #}
+			</div>{# /.container-fluid #}
+		</nav>
+		<div class="container" id="flashMessages">
+			{%- block content %}{% endblock -%}
+		</div>
+		{%- with messages = get_flashed_messages(category_filter=["success"]) %}
+			{%- if messages %}
+				<div id="flashDialogSuccess" title="Success message">
+				{%- for message in messages %}
+					<div class="flashMessage">{{ message }}</div>
+				{% endfor -%}
+				</div>
+			{% endif -%}
+		{% endwith -%}
+		{%- with messages = get_flashed_messages(category_filter=["error"]) %}
+			{%- if messages %}
+				<div id="flashDialogError" title="Error message">
+				{%- for message in messages %}
+					<div class="flashMessage">{{ message }}</div>
+				{% endfor -%}
+				</div>
+			{% endif -%}
+		{% endwith -%}
+		{%- with messages = get_flashed_messages(category_filter=["info"]) %}
+			{%- if messages %}
+				<div id="flashDialogInfo" title="Info message">
+				{%- for message in messages %}
+					<div class="flashMessage">{{ message }}</div>
+				{% endfor -%}
+				</div>
+			{% endif -%}
+		{% endwith -%}
+		{#
+ 		{%- block footer -%}
+		<div class="bottombar">
+			<div class="fill">
+				<div class="container">
+					&copy; Copyright 2016 by <a href="http://oxi.ch/">oXiVanisher</a>.
+				</div>
+			</div>
+		</div>
+		{%- endblock %}
+		-#}
+		<script>
+			var seen = {};
+			$('.flashMessage').each(function() {
+			    var txt = $(this).text();
+			    if (seen[txt])
+			        $(this).remove();
+			    else
+			        seen[txt] = true;
+			});
+		</script>
+	</body>
+</html>
