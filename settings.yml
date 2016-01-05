@@ -1,0 +1,24 @@
+fonts:
+  title:
+    font: resources/FREESCPT.TTF
+    size: 20
+  text:
+    font: resources/FREESCPT.TTF
+    size: 20
+defaults:
+  title:
+    text:   FPV Racer
+    width:  5
+    height: 8
+  prename:
+    text:   Hans
+    width:  165
+    height: 33
+  surname:
+    text:   Mustermann
+    width:  142
+    height: 13
+image:
+  source: resources/fpvracersch.bmp
+  extension: bmp
+  destination: output/
