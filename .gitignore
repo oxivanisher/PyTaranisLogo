@@ -1,6 +1,5 @@
 # My Excludes
-dist/*.py
-output/*.*
+output/*
 resources/*
 
 # Byte-compiled / optimized / DLL files
