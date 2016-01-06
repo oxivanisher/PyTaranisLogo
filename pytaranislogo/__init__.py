@@ -12,7 +12,7 @@ from utils import *
 # logging to file
 myPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
 logPath = os.path.join(myPath, 'log/pytaranislogo.log')
-logging.basicConfig(filename=logPath, format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
+logging.basicConfig(filename=logPath, format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.DEBUG)
 
 log = logging.getLogger(__name__)
 log.info("[System] PyTaranisLogo system is starting up")
