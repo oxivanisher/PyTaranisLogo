@@ -17,8 +17,11 @@ import yaml
 
 class PyTanarisLogo(object):
 
-    def __init__(self, cfg = None):
-        self.log = self.log.getLogger(__name__)
+    def __init__(self, cfg = None, log = None):
+        if log:
+            self.log = log
+        else:
+            self.log = self.log.getLogger(__name__)
         self.log.debug("[Render] Instance created")
         self.cfg = None
         self.title = None

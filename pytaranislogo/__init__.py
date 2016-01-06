@@ -34,7 +34,7 @@ except ImportError:
 app = Flask(__name__)
 
 # setup logging
-log = app.logger
+# log = app.logger
 
 Compress(app)
 app.config['scriptPath'] = os.path.dirname(os.path.realpath(__file__))
@@ -42,15 +42,15 @@ app.config['startupDate'] = time.time()
 
 try:
     os.environ['TARANISLOGO_CFG']
-    log.info("[System] Loading config from: %s" % os.environ['TARANISLOGO_CFG'])
+    app.logger.info("[System] Loading config from: %s" % os.environ['TARANISLOGO_CFG'])
 except KeyError:
-    log.warning("[System] Loading config from dist/pytaranislogo.cfg.example becuase TARANISLOGO_CFG environment variable is not set.")
+    app.logger.warning("[System] Loading config from dist/pytaranislogo.cfg.example becuase TARANISLOGO_CFG environment variable is not set.")
     os.environ['TARANISLOGO_CFG'] = "../dist/pytaranislogo.cfg.example"
 
 try:
     app.config.from_envvar('TARANISLOGO_CFG', silent=False)
 except RuntimeError as e:
-    log.error(e)
+    app.logger.error(e)
     sys.exit(2)
 
 with app.test_request_context():
@@ -64,7 +64,7 @@ with app.test_request_context():
         app.logger.addHandler(mail_handler)
 
 if not len(app.config['APPSECRET']):
-    log.warning("[System] Generating random secret_key. All older cookies will be invalid, but i will NOT work with multiple processes (WSGI).")
+    app.logger.warning("[System] Generating random secret_key. All older cookies will be invalid, but i will NOT work with multiple processes (WSGI).")
     app.secret_key = os.urandom(24)
 else:
     app.secret_key = app.config['APPSECRET']
@@ -80,31 +80,31 @@ def getConfig():
 @app.errorhandler(400)
 def error_bad_request(error):
     flash("Bad Request", 'error')
-    log.warning("[System] 400 Bad Request: %s" % (request.path))
+    app.logger.warning("[System] 400 Bad Request: %s" % (request.path))
     return redirect(url_for('index'))
 
 @app.errorhandler(401)
 def error_unauthorized_request(error):
     flash("Unauthorized request", 'error')
-    log.warning("[System] 401 Page not found: %s" % (request.path))
+    app.logger.warning("[System] 401 Page not found: %s" % (request.path))
     return redirect(url_for('index'))
 
 @app.errorhandler(403)
 def error_forbidden_request(error):
     flash("Forbidden request", 'error')
-    log.warning("[System] 403 Page not found: %s" % (request.path))
+    app.logger.warning("[System] 403 Page not found: %s" % (request.path))
     return redirect(url_for('index'))
 
 @app.errorhandler(404)
 def error_not_found(error):
     flash("Page not found", 'error')
-    log.warning("[System] 404 Page not found: %s" % (request.path))
+    app.logger.warning("[System] 404 Page not found: %s" % (request.path))
     return redirect(url_for('index'))
 
 @app.errorhandler(500)
 def error_internal_server_error(error):
     flash("The server encountered an internal error, probably a bug in the program. The administration was automatically informed of this problem.", 'error')
-    log.warning("[System] 500 Internal error: %s" % (request.path))
+    app.logger.warning("[System] 500 Internal error: %s" % (request.path))
     return index()
 
 # settings
@@ -173,7 +173,7 @@ def image_render():
     cfg['defaults']['resourcesPath'] = os.path.join(app.config['scriptPath'], '..', 'resources')
     cfg['defaults']['destinationPath'] = os.path.join(app.config['scriptPath'], 'static', 'output')
 
-    plr = PyTanarisLogo(cfg)
+    plr = PyTanarisLogo(cfg, app.logging)
 
     fileName = "%s.%s" % (plr.run(), cfg['defaults']['extension'])
     dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
@@ -181,5 +181,5 @@ def image_render():
     if os.path.isfile(os.path.join(cfg['defaults']['destinationPath'], fileName)):
         return send_from_directory(cfg['defaults']['destinationPath'], fileName, as_attachment = True, attachment_filename = dlName)
     else:
-        log.warning("[System] Image not found: %s" % os.path.join(cfg['defaults']['destinationPath'], fileName))
+        app.logger.warning("[System] Image not found: %s" % os.path.join(cfg['defaults']['destinationPath'], fileName))
         return redirect(url_for('index'))
