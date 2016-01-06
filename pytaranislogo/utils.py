@@ -53,7 +53,7 @@ class PyTanarisLogo(object):
 
         titleFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['title']['font'])
         logging.debug("[Render] Loading title font: %s" % (titleFontPath))
-        titleFont = ImageFont.truetype(, self.cfg['fonts']['title']['size'])
+        titleFont = ImageFont.truetype(titleFontPath, self.cfg['fonts']['title']['size'])
 
         textFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['text']['font'])
         logging.debug("[Render] Loading text font: %s" % (textFontPath))
