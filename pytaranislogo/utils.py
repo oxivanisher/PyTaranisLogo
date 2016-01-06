@@ -50,12 +50,19 @@ class PyTanarisLogo(object):
     def renderImage(self):
         image = Image.open(os.path.join(self.resourcePath, self.sourcefile))
         draw = ImageDraw.Draw(image)
-        fontTitle = ImageFont.truetype(os.path.join(self.resourcePath, self.cfg['fonts']['title']['font']), self.cfg['fonts']['title']['size'])
-        fontName = ImageFont.truetype(os.path.join(self.resourcePath, self.cfg['fonts']['text']['font']), self.cfg['fonts']['text']['size'])
 
-        draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=fontTitle)
-        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=fontName)
-        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=fontName)
+        titleFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['title']['font'])
+        logging.debug("[Render] Loading title font: %s" % (titleFontPath))
+        titleFont = ImageFont.truetype(, self.cfg['fonts']['title']['size'])
+
+        textFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['text']['font'])
+        logging.debug("[Render] Loading text font: %s" % (textFontPath))
+        textFont = ImageFont.truetype(textFontPath, self.cfg['fonts']['text']['size'])
+
+        draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=titleFont)
+        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=textFont)
+        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=textFont)
+
         logging.debug("[Render] Rendered image")
 
         return image
