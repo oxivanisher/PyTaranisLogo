@@ -1,22 +1,17 @@
 {%- extends "base.html" -%}
 {%- block title %}Index{% endblock -%}
 {%- block content -%}
-<div class="content_block"><form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
+<div class="content_block">
+	<form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
 	<h2>Taranis Boot Logo creator</h2>
-		<table>
-			<tr>
-				<td>
-					<img src="{{ url_for('static', filename='img/example.png') }}" style="border:1px solid #000000; box-shadow: 10px 10px 5px #888888;">
-				</td>
-				<td>
-					<dl>
-						<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus">
-						<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
-						<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}">
-					</dl>
-					<button class="btn btn-default" type="submit">Submit</button> <button class="btn btn-default" type="reset">Reset</button>
-				</td>
-			</tr>
-		</table>
-</form></dev>
+	<br />
+	<img src="{{ url_for('static', filename='img/example.png') }}" style="border:1px solid #000000; box-shadow: 10px 10px 5px #888888;"><br />
+	<br />
+	<dl>
+		<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus">
+		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
+		<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}">
+	</dl>
+	<button class="btn btn-default" type="submit">Submit</button> <button class="btn btn-default" type="reset">Reset</button>
+	</form>
 </div>{% endblock %}
