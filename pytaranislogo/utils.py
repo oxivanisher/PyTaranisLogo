@@ -84,9 +84,9 @@ class PyTanarisLogo(object):
 
         # only render if file not already exists
         if os.path.isfile(outfile):
-            self.log.info("[Render] Already existing file: %s" % (outfile))
+            self.log.debug("[Render] Already existing file: %s" % (outfile))
         else:
-            self.log.info("[Render] Rendering not existing file: %s" % (outfile))
+            self.log.info("[Render] Rendering image for %s: %s %s" % (self.title, self.surname, self.prename))
 
             image = self.renderImage()
 

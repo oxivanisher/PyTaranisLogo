@@ -179,6 +179,7 @@ def image_render():
     dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
 
     if os.path.isfile(os.path.join(cfg['defaults']['destinationPath'], fileName)):
+        app.logger.info("[System] Sending file: %s" % (fileName))
         return send_from_directory(cfg['defaults']['destinationPath'], fileName, as_attachment = True, attachment_filename = dlName)
     else:
         app.logger.warning("[System] Image not found: %s" % os.path.join(cfg['defaults']['destinationPath'], fileName))
