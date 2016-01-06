@@ -13,12 +13,13 @@ import hashlib
 import logging
 import yaml
 
-logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.DEBUG)
+# logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=self.log.DEBUG)
 
 class PyTanarisLogo(object):
 
     def __init__(self, cfg = None):
-        logging.debug("[Render] Instance created")
+        self.log = self.log.getLogger(__name__)
+        self.log.debug("[Render] Instance created")
         self.cfg = None
         self.title = None
         self.surname = None
@@ -36,7 +37,7 @@ class PyTanarisLogo(object):
     def loadConfig(self):
         with open('config/settings.yml', 'r') as f:
             self.parseConfig(yaml.load(f))
-            logging.debug("[Render] Configuration loaded")
+            self.log.debug("[Render] Configuration loaded")
 
     def parseConfig(self):
         self.title = self.cfg['texts']['title']['text']
@@ -52,18 +53,18 @@ class PyTanarisLogo(object):
         draw = ImageDraw.Draw(image)
 
         titleFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['title']['font'])
-        logging.debug("[Render] Loading title font: %s" % (titleFontPath))
+        self.log.debug("[Render] Loading title font: %s" % (titleFontPath))
         titleFont = ImageFont.truetype(titleFontPath, self.cfg['fonts']['title']['size'])
 
         textFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['text']['font'])
-        logging.debug("[Render] Loading text font: %s" % (textFontPath))
+        self.log.debug("[Render] Loading text font: %s" % (textFontPath))
         textFont = ImageFont.truetype(textFontPath, self.cfg['fonts']['text']['size'])
 
         draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=titleFont)
         draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=textFont)
         draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=textFont)
 
-        logging.debug("[Render] Rendered image")
+        self.log.debug("[Render] Rendered image")
 
         return image
 
@@ -71,25 +72,25 @@ class PyTanarisLogo(object):
         myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'), self.title.encode('utf-8'), self.surname.encode('utf-8'), self.prename.encode('utf-8'))).hexdigest()
         outfile = os.path.join(self.destinationPath, "%s.%s" % (myHash, self.extension))
 
-        logging.debug("[Render] Surname:      %s" % (self.surname))
-        logging.debug("[Render] Prename:      %s" % (self.prename))
-        logging.debug("[Render] Title:        %s" % (self.title))
-        logging.debug("[Render] Hash:         %s" % (myHash))
-        logging.debug("[Render] Sourcefile:   %s" % (self.sourcefile))
-        logging.debug("[Render] Outfile:      %s" % (outfile))
+        self.log.debug("[Render] Surname:      %s" % (self.surname))
+        self.log.debug("[Render] Prename:      %s" % (self.prename))
+        self.log.debug("[Render] Title:        %s" % (self.title))
+        self.log.debug("[Render] Hash:         %s" % (myHash))
+        self.log.debug("[Render] Sourcefile:   %s" % (self.sourcefile))
+        self.log.debug("[Render] Outfile:      %s" % (outfile))
 
         # only render if file not already exists
         if os.path.isfile(outfile):
-            logging.info("[Render] Already existing file: %s" % (outfile))
+            self.log.info("[Render] Already existing file: %s" % (outfile))
         else:
-            logging.info("[Render] Rendering not existing file: %s" % (outfile))
+            self.log.info("[Render] Rendering not existing file: %s" % (outfile))
 
             image = self.renderImage()
 
             try:
                 image.save(outfile)
             except IOError:
-                logging.error("[Render] Cannot save to: %s" % (outfile))
+                self.log.error("[Render] Cannot save to: %s" % (outfile))
 
         return myHash
 

@@ -73,7 +73,7 @@ else:
 def getConfig():
     filePath = os.path.join(app.config['scriptPath'], '..', 'config', 'settings.yml')
     with open(filePath, 'r') as f:
-        logging.debug("[System] Loading configuration")
+        app.logging.debug("[System] Loading configuration")
         return yaml.load(f)
 
 # flask error handlers
