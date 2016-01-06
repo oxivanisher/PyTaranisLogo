@@ -69,6 +69,12 @@ if not len(app.config['APPSECRET']):
 else:
     app.secret_key = app.config['APPSECRET']
 
+# helpers
+def getConfig():
+    with open('config/settings.yml', 'r') as f:
+        logging.debug("[System] Loading configuration")
+        return yaml.load(f)
+
 # flask error handlers
 @app.errorhandler(400)
 def error_bad_request(error):
@@ -178,4 +184,36 @@ def get_sitemap_xml():
 # main route
 @app.route('/')
 def index():
-    return render_template('index.html')
+    cfg = getConfig()
+
+    values = {}
+    values['title'] = cfg['defaults']['title']['text']
+    values['prename'] = cfg['defaults']['prename']['text']
+    values['surname'] = cfg['defaults']['surname']['text']
+
+    return render_template('index.html',values = values)
+
+@app.route('/Render', methods=['POST'])
+def image_render():
+    def genDlName(title, surname, prename, fileExtension):
+        def cleanup(str):
+            return str.lower().replace(' ', '_')
+        return "%s-%s-%s.%s" % (cleanup(title), cleanup(surname), cleanup(prename), fileExtension)
+
+    plr = PyTanarisLogo()
+    plr.loadDefaults()
+
+    plr.title = request.form['title']
+    plr.surname = request.form['surname']
+    plr.prename = request.form['prename']
+
+    fileExtension = "bmp" #Read from Settings!
+    fileName = "%s.%s" % (plr.run(), fileExtension)
+    filePath = os.path.join(app.config['scriptPath'], 'static', 'output')
+    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], fileExtension)
+
+    if os.path.isfile(os.path.join(filePath, fileName)):
+        return send_from_directory(filePath, fileName, as_attachment = True, attachment_filename = dlName)
+    else:
+        log.warning("[System] Image not found: %s" % os.path.join(filePath, fileName))
+        return redirect(url_for('index'))

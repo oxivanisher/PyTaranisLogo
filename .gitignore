@@ -1,5 +1,5 @@
 # My Excludes
-output/*
+pytaranislogo/static/output/*
 resources/*
 dist/*.cfg
 

@@ -21,4 +21,4 @@ defaults:
 image:
   source: resources/fpvracersch.bmp
   extension: bmp
-  destination: output/
+  destination: pytaranislogo/static/output/
