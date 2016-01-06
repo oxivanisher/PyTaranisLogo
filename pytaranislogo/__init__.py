@@ -201,17 +201,18 @@ def image_render():
             return string.encode('utf-8').lower().replace(' ', '_')
         return "%s-%s-%s.%s" % (cleanup(title), cleanup(surname), cleanup(prename), fileExtension)
 
-    plr = PyTanarisLogo(getConfig())
-    plr.loadDefaults()
+    cfg = getConfig()
 
-    plr.title = request.form['title']
-    plr.surname = request.form['surname']
-    plr.prename = request.form['prename']
+    cfg['defaults']['title']['text'] = request.form['title']
+    cfg['defaults']['prename']['text'] = request.form['surname']
+    cfg['defaults']['surname']['text'] = request.form['prename']
+    cfg['image']['source'] = os.path.join(app.config['scriptPath'], '..', cfg['image']['source'])
 
-    fileExtension = "bmp" #Read from Settings!
-    fileName = "%s.%s" % (plr.run(), fileExtension)
+    plr = PyTanarisLogo(cfg)
+
+    fileName = "%s.%s" % (plr.run(), cfg['image']['extension'])
     filePath = os.path.join(app.config['scriptPath'], 'static', 'output')
-    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], fileExtension)
+    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['image']['extension'])
 
     if os.path.isfile(os.path.join(filePath, fileName)):
         return send_from_directory(filePath, fileName, as_attachment = True, attachment_filename = dlName)

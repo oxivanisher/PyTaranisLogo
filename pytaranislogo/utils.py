@@ -26,6 +26,7 @@ class PyTanarisLogo(object):
         self.sourcefile = None
         if cfg:
             self.cfg = cfg
+            self.loadDefaults()
         else:
             self.loadConfig()
 
