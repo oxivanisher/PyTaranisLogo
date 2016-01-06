@@ -51,7 +51,7 @@ class PyTanarisLogo(object):
         return image
 
     def run(self):
-        myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile, self.title, self.surname, self.prename)).hexdigest()
+        myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'), self.title.encode('utf-8'), self.surname.encode('utf-8'), self.prename.encode('utf-8'))).hexdigest()
         outfile = os.path.join(self.cfg['image']['destination'], "%s.%s" % (myHash, self.cfg['image']['extension']))
 
         logging.debug("[Render] Surname:      %s" % (self.surname))

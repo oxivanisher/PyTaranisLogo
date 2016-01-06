@@ -196,8 +196,8 @@ def index():
 @app.route('/Render', methods=['POST'])
 def image_render():
     def genDlName(title, surname, prename, fileExtension):
-        def cleanup(str):
-            return str.lower().replace(' ', '_')
+        def cleanup(string):
+            return string.encode('utf-8').lower().replace(' ', '_')
         return "%s-%s-%s.%s" % (cleanup(title), cleanup(surname), cleanup(prename), fileExtension)
 
     plr = PyTanarisLogo()
