@@ -1,11 +1,11 @@
 fonts:
   title:
-    font: resources/FREESCPT.TTF
+    font: FREESCPT.TTF
     size: 20
   text:
-    font: resources/FREESCPT.TTF
+    font: FREESCPT.TTF
     size: 20
-defaults:
+texts:
   title:
     text:   FPV Racer
     width:  5
@@ -18,7 +18,8 @@ defaults:
     text:   Mustermann
     width:  142
     height: 13
-image:
-  source: resources/fpvracersch.bmp
+defaults:
   extension: bmp
-  destination: pytaranislogo/static/output/
+  defaultImage: fpvracersch.bmp
+  resourcesPath: resources/
+  destinationPath: output/

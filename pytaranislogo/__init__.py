@@ -188,9 +188,9 @@ def index():
     cfg = getConfig()
 
     values = {}
-    values['title'] = cfg['defaults']['title']['text']
-    values['prename'] = cfg['defaults']['prename']['text']
-    values['surname'] = cfg['defaults']['surname']['text']
+    values['title'] = cfg['texts']['title']['text']
+    values['prename'] = cfg['texts']['prename']['text']
+    values['surname'] = cfg['texts']['surname']['text']
 
     return render_template('index.html', values = values)
 
@@ -203,19 +203,19 @@ def image_render():
 
     cfg = getConfig()
 
-    cfg['defaults']['title']['text'] = request.form['title']
-    cfg['defaults']['prename']['text'] = request.form['surname']
-    cfg['defaults']['surname']['text'] = request.form['prename']
-    cfg['image']['source'] = os.path.join(app.config['scriptPath'], '..', cfg['image']['source'])
+    cfg['texts']['title']['text'] = request.form['title']
+    cfg['texts']['prename']['text'] = request.form['surname']
+    cfg['texts']['surname']['text'] = request.form['prename']
+    cfg['defaults']['resourcesPath'] = os.path.join(app.config['scriptPath'], '..', 'resources')
+    cfg['defaults']['destinationPath'] = os.path.join(app.config['scriptPath'], 'static', 'output')
 
     plr = PyTanarisLogo(cfg)
 
-    fileName = "%s.%s" % (plr.run(), cfg['image']['extension'])
-    filePath = os.path.join(app.config['scriptPath'], 'static', 'output')
-    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['image']['extension'])
+    fileName = "%s.%s" % (plr.run(), cfg['defaults']['extension'])
+    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
 
-    if os.path.isfile(os.path.join(filePath, fileName)):
-        return send_from_directory(filePath, fileName, as_attachment = True, attachment_filename = dlName)
+    if os.path.isfile(os.path.join(cfg['defaults']['destinationPath'], fileName)):
+        return send_from_directory(cfg['defaults']['destinationPath'], fileName, as_attachment = True, attachment_filename = dlName)
     else:
-        log.warning("[System] Image not found: %s" % os.path.join(filePath, fileName))
+        log.warning("[System] Image not found: %s" % os.path.join(cfg['defaults']['destinationPath'], fileName))
         return redirect(url_for('index'))

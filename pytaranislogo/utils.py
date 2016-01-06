@@ -23,40 +23,46 @@ class PyTanarisLogo(object):
         self.title = None
         self.surname = None
         self.prename = None
+        self.extension = None
         self.sourcefile = None
+        self.resourcePath = None
+        self.destinationPath = None
         if cfg:
             self.cfg = cfg
-            self.loadDefaults()
+            self.parseConfig()
         else:
             self.loadConfig()
 
     def loadConfig(self):
         with open('config/settings.yml', 'r') as f:
-            self.cfg = yaml.load(f)
+            self.parseConfig(yaml.load(f))
             logging.debug("[Render] Configuration loaded")
 
-    def loadDefaults(self):
-        self.title = self.cfg['defaults']['title']['text']
-        self.surname = self.cfg['defaults']['surname']['text']
-        self.prename = self.cfg['defaults']['prename']['text']
-        self.sourcefile = self.cfg['image']['source']
+    def parseConfig(self):
+        self.title = self.cfg['texts']['title']['text']
+        self.surname = self.cfg['texts']['surname']['text']
+        self.prename = self.cfg['texts']['prename']['text']
+        self.extension = self.cfg['defaults']['extension']
+        self.sourcefile = self.cfg['defaults']['defaultImage']
+        self.resourcePath = self.cfg['defaults']['resourcesPath']
+        self.destinationPath = self.cfg['defaults']['destinationPath']
 
     def renderImage(self):
-        image = Image.open(self.sourcefile)
+        image = Image.open(os.path.join(self.resourcePath, self.sourcefile))
         draw = ImageDraw.Draw(image)
-        fontTitle = ImageFont.truetype(self.cfg['fonts']['title']['font'], self.cfg['fonts']['title']['size'])
-        fontName = ImageFont.truetype(self.cfg['fonts']['text']['font'], self.cfg['fonts']['text']['size'])
+        fontTitle = ImageFont.truetype(os.path.join(self.resourcePath, self.cfg['fonts']['title']['font']), self.cfg['fonts']['title']['size'])
+        fontName = ImageFont.truetype(os.path.join(self.resourcePath, self.cfg['fonts']['text']['font']), self.cfg['fonts']['text']['size'])
 
-        draw.text((self.cfg['defaults']['title']['width'], self.cfg['defaults']['title']['height']),self.title,(16),font=fontTitle)
-        draw.text((self.cfg['defaults']['surname']['width'], self.cfg['defaults']['surname']['height']),self.surname,(16),font=fontName)
-        draw.text((self.cfg['defaults']['prename']['width'], self.cfg['defaults']['prename']['height']),self.prename,(16),font=fontName)
+        draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=fontTitle)
+        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=fontName)
+        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=fontName)
         logging.debug("[Render] Rendered image")
 
         return image
 
     def run(self):
         myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'), self.title.encode('utf-8'), self.surname.encode('utf-8'), self.prename.encode('utf-8'))).hexdigest()
-        outfile = os.path.join(self.cfg['image']['destination'], "%s.%s" % (myHash, self.cfg['image']['extension']))
+        outfile = os.path.join(self.destinationPath, "%s.%s" % (myHash, self.extension))
 
         logging.debug("[Render] Surname:      %s" % (self.surname))
         logging.debug("[Render] Prename:      %s" % (self.prename))
