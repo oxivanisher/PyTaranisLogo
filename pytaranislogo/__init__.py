@@ -73,7 +73,7 @@ else:
 def getConfig():
     filePath = os.path.join(app.config['scriptPath'], '..', 'config', 'settings.yml')
     with open(filePath, 'r') as f:
-        app.logging.debug("[System] Loading configuration")
+        app.logger.debug("[System] Loading configuration")
         return yaml.load(f)
 
 # flask error handlers
@@ -173,7 +173,7 @@ def image_render():
     cfg['defaults']['resourcesPath'] = os.path.join(app.config['scriptPath'], '..', 'resources')
     cfg['defaults']['destinationPath'] = os.path.join(app.config['scriptPath'], 'static', 'output')
 
-    plr = PyTanarisLogo(cfg, app.logging)
+    plr = PyTanarisLogo(cfg, app.logger)
 
     fileName = "%s.%s" % (plr.run(), cfg['defaults']['extension'])
     dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
