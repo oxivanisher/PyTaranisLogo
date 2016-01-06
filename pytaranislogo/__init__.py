@@ -71,7 +71,8 @@ else:
 
 # helpers
 def getConfig():
-    with open('config/settings.yml', 'r') as f:
+    filePath = os.path.join(app.config['scriptPath'], '..', 'config', 'settings.yml')
+    with open(filePath, 'r') as f:
         logging.debug("[System] Loading configuration")
         return yaml.load(f)
 
