@@ -17,14 +17,17 @@ import yaml
 
 class PyTanarisLogo(object):
 
-    def __init__(self):
+    def __init__(self, cfg = None):
         logging.debug("[Render] Instance created")
         self.cfg = None
         self.title = None
         self.surname = None
         self.prename = None
         self.sourcefile = None
-        self.loadConfig()
+        if cfg:
+            self.cfg = cfg
+        else:
+            self.loadConfig()
 
     def loadConfig(self):
         with open('config/settings.yml', 'r') as f:

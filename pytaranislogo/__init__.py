@@ -192,7 +192,7 @@ def index():
     values['prename'] = cfg['defaults']['prename']['text']
     values['surname'] = cfg['defaults']['surname']['text']
 
-    return render_template('index.html',values = values)
+    return render_template('index.html', values = values)
 
 @app.route('/Render', methods=['POST'])
 def image_render():
@@ -201,7 +201,7 @@ def image_render():
             return string.encode('utf-8').lower().replace(' ', '_')
         return "%s-%s-%s.%s" % (cleanup(title), cleanup(surname), cleanup(prename), fileExtension)
 
-    plr = PyTanarisLogo()
+    plr = PyTanarisLogo(getConfig())
     plr.loadDefaults()
 
     plr.title = request.form['title']
