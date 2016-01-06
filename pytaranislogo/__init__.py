@@ -168,8 +168,8 @@ def image_render():
     cfg = getConfig()
 
     cfg['texts']['title']['text'] = request.form['title']
-    cfg['texts']['prename']['text'] = request.form['surname']
-    cfg['texts']['surname']['text'] = request.form['prename']
+    cfg['texts']['prename']['text'] = request.form['prename']
+    cfg['texts']['surname']['text'] = request.form['surname']
     cfg['defaults']['resourcesPath'] = os.path.join(app.config['scriptPath'], '..', 'resources')
     cfg['defaults']['destinationPath'] = os.path.join(app.config['scriptPath'], 'static', 'output')
 
