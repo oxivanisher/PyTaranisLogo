@@ -123,42 +123,6 @@ def about():
 def favicon():
     return redirect(url_for('static', filename=app.config['FAVICON']))
 
-@app.route('/Images/<imgType>/', methods = ['GET', 'POST'])
-@app.route('/Images/<imgType>/<imgId>', methods = ['GET', 'POST'])
-def get_image(imgType, imgId = None):
-    filePath = os.path.join(app.config['scriptPath'], 'static', imgType)
-    fileName = ""
-    log.debug("[System] Requesting img type <%s> id <%s>" % (imgType, imgId))
-
-    try:
-        if imgType == 'avatar':
-            fileName = pywishlist[int(imgId)].avatar
-        elif imgType == 'network':
-            if imgId == 'System':
-                fileName = app.config['SYSTEMLOGO']
-                filePath = os.path.join(app.config['scriptPath'], 'static/img')
-            elif imgId == 'OpenGraph':
-                fileName = app.config['OPENGRAPHLOGO']
-                filePath = os.path.join(app.config['scriptPath'], 'static/img')
-            else:
-                fileName = app.config['PLACEHOLDER']
-                filePath = os.path.join(app.config['scriptPath'], 'static/img')
-        elif imgType == 'cache':
-            fileName = imgId
-        elif imgType == 'flag':
-            fileName = imgId + '.png'
-        elif imgType == 'product':
-            fileName = imgId + '.png'
-
-        if os.path.isfile(os.path.join(filePath, fileName)):
-            return send_from_directory(filePath, fileName)
-        else:
-            log.warning("[System] Image not found: %s/%s" % (filePath, fileName))
-
-    except (IndexError, AttributeError, KeyError):
-        log.warning("[System] Unknown ID for img type %s: %s" % (imgType, imgId))
-    abort(404)
-
 @app.route('/robots.txt')
 def get_robots_txt():
     ret = []
@@ -169,7 +133,7 @@ def get_robots_txt():
 
 @app.route('/sitemap.xml')
 def get_sitemap_xml():
-    methodsToList = [ 'index', 'about', 'profile_register', 'profile_login' ]
+    methodsToList = [ 'index', 'about' ]
     ret = []
     ret.append('<?xml version="1.0" encoding="UTF-8"?>')
     ret.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
