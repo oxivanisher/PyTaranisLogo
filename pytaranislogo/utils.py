@@ -25,6 +25,7 @@ class PyTanarisLogo(object):
         self.log.debug("[Render] Instance created")
         self.cfg = None
         self.title = None
+        self.logoImage = None
         self.surname = None
         self.prename = None
         self.extension = None
@@ -47,7 +48,7 @@ class PyTanarisLogo(object):
         self.surname = self.cfg['texts']['surname']['text']
         self.prename = self.cfg['texts']['prename']['text']
         self.extension = self.cfg['defaults']['extension']
-        self.sourcefile = self.cfg['defaults']['defaultImage']
+        self.sourcefile = self.cfg['logoImage']
         self.resourcePath = self.cfg['defaults']['resourcesPath']
         self.destinationPath = self.cfg['defaults']['destinationPath']
 

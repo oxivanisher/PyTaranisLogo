@@ -1,0 +1,37 @@
+fonts:
+  title:
+    font: FREESCPT.TTF
+    size: 20
+  text:
+    font: FREESCPT.TTF
+    size: 20
+texts:
+  title:
+    width:  5
+    height: 8
+  prename:
+    text:   Hans
+    width:  165
+    height: 33
+  surname:
+    text:   Mustermann
+    width:  142
+    height: 13
+defaults:
+  extension: bmp
+  defaultInstance: default
+  defaultFavicon: https://example.com/favicon.ico
+  resourcesPath: resources/
+  destinationPath: output/
+instances:
+  - default:
+    title: default instance
+    logoImage: default-x9.bmp
+    urls:
+      - taranis.example.com:443
+  - additional:
+    title: additional instance
+    logoImage: additional-x9.bmp
+    favicon: https://somewhere.example.com/favicon.ico
+    urls:
+      - additional.example.com:443

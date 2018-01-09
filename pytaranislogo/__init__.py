@@ -25,7 +25,7 @@ except ImportError:
     sys.exit(2)
 
 try:
-    from flask.ext.compress import Compress
+    from flask_compress import Compress
 except ImportError:
     log.error("[System] Please install the flask extension: Flask-Compress")
     sys.exit(2)
@@ -70,11 +70,29 @@ else:
     app.secret_key = app.config['APPSECRET']
 
 # helpers
-def getConfig():
+def getInstanceSettings():
+
+    # reading settings.yml
     filePath = os.path.join(app.config['scriptPath'], '..', 'config', 'settings.yml')
     with open(filePath, 'r') as f:
         app.logger.debug("[System] Loading configuration")
-        return yaml.load(f)
+        cfg = yaml.load(f)
+
+    # setting some defaults
+    cfg['favicon'] = cfg['defaults']['defaultFavicon']
+
+    # detect host magic, or else set settings of cfg['defaults']['defaultInstance']
+    currentInstance = cfg['defaults']['defaultInstance']
+    for instance in cfg['instances']:
+        if request.host in instance['urls']:
+            currentInstance = instance
+
+    # set the dynamic instance variables
+    cfg['texts']['title']['text'] = cfg['instances'][currentInstance]['title']
+    cfg['favicon'] = cfg['instances'][currentInstance]['favicon']
+    cfg['logoImage'] = cfg['instances'][currentInstance]['logoImage']
+
+    return cfg
 
 # flask error handlers
 @app.errorhandler(400)
@@ -121,7 +139,8 @@ def about():
 # support routes
 @app.route('/favicon.ico')
 def favicon():
-    return redirect(url_for('static', filename=app.config['FAVICON']))
+    cfg = getInstanceSettings()
+    return redirect(cfg['favicon'])
 
 @app.route('/robots.txt')
 def get_robots_txt():
@@ -149,7 +168,7 @@ def get_sitemap_xml():
 # main route
 @app.route('/')
 def index():
-    cfg = getConfig()
+    cfg = getInstanceSettings()
 
     values = {}
     values['title'] = cfg['texts']['title']['text']
@@ -160,12 +179,16 @@ def index():
 
 @app.route('/Render', methods=['POST'])
 def image_render():
-    def genDlName(title, surname, prename, fileExtension):
+    def genDlName(title, logoImage, surname, prename, fileExtension):
         def cleanup(string):
             return string.encode('utf-8').lower().replace(' ', '_')
-        return "%s-%s-%s.%s" % (cleanup(title), cleanup(surname), cleanup(prename), fileExtension)
+        return "%s-%s-%s.%s" % (cleanup(title),
+                                cleanup(logoImage),
+                                cleanup(surname),
+                                cleanup(prename),
+                                fileExtension)
 
-    cfg = getConfig()
+    cfg = getInstanceSettings()
 
     cfg['texts']['title']['text'] = request.form['title']
     cfg['texts']['prename']['text'] = request.form['prename']
