@@ -7,10 +7,10 @@ This tool lets you create custom taranis boot/start images. The dimensions for t
 * Setup things config/settings.yml (copy from settings.yml.example)
 * Download FREESCPT.TFF from http://fontzone.net/download/freestyle-script to resources/
 * For each instance:
-** Generate your base image from dist/x9-empty.xcf and copy it to resources/logoImage (from settings.yml)
-** Generate (download) the example image and copy/convert it to static/img/exampleImage (from settings.yml)
-** Copy a background image to static/img/backgroundImage (from settings.yml)
-* Setup logrotate to rotate log/*.log
+** Generate your base image from dist/x9-empty.xcf and copy it to `resources/logoImage` (from `settings.yml`)
+** Generate (download) the example image and copy/convert it to `static/img/exampleImage` (from `settings.yml`)
+** Copy a background image to `static/img/backgroundImage` (from `settings.yml`)
+* Setup logrotate to rotate `log/*.log`
 
 
 ### Python Requirements
