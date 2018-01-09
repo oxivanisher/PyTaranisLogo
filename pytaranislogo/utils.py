@@ -56,17 +56,22 @@ class PyTanarisLogo(object):
         image = Image.open(os.path.join(self.resourcePath, self.sourcefile))
         draw = ImageDraw.Draw(image)
 
-        titleFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['title']['font'])
+        titleFontPath = os.path.join(self.resourcePath, self.cfg['texts']['title']['font'])
+        surnameFontPath = os.path.join(self.resourcePath, self.cfg['texts']['surname']['font'])
+        prenameFontPath = os.path.join(self.resourcePath, self.cfg['texts']['prename']['font'])
+        
         self.log.debug("[Render] Loading title font: %s" % (titleFontPath))
-        titleFont = ImageFont.truetype(titleFontPath, self.cfg['fonts']['title']['size'])
+        titleFont = ImageFont.truetype(titleFontPath, self.cfg['texts']['title']['size'])
 
-        textFontPath = os.path.join(self.resourcePath, self.cfg['fonts']['text']['font'])
-        self.log.debug("[Render] Loading text font: %s" % (textFontPath))
-        textFont = ImageFont.truetype(textFontPath, self.cfg['fonts']['text']['size'])
+        self.log.debug("[Render] Loading surname font: %s" % (surnameFontPath))
+        surnameFont = ImageFont.truetype(surnameFontPath, self.cfg['texts']['surname']['size'])
+
+        self.log.debug("[Render] Loading prename font: %s" % (prenameFontPath))
+        prenameFont = ImageFont.truetype(prenameFontPath, self.cfg['texts']['prename']['size'])
 
         draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=titleFont)
-        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=textFont)
-        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=textFont)
+        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=surnameFont)
+        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=prenameFont)
 
         self.log.debug("[Render] Rendered image")
 

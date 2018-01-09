@@ -25,17 +25,53 @@ defaults:
   destinationPath: output/
 instances:
   default:
-    title: default instance
     logoImage: default-x9.bmp
     exampleImage: default-x9.png
     backgroundImage: default-bg.jpg
     urls:
       - taranis.example.com
+    texts:
+      title:
+        text: default instance
+        font: FREESCPT.TTF
+        size: 20
+        width: 5
+        height: 8
+      prename:
+        text: Hans
+        font: FREESCPT.TTF
+        size: 20
+        width: 165
+        height: 33
+      surname:
+        text: Mustermann
+        font: FREESCPT.TTF
+        size: 20
+        width: 165
+        height: 33
   additional:
-    title: additional instance
     logoImage: additional-x9.bmp
     exampleImage: additional-x9.png
     backgroundImage: additional-bg.jpg
     favicon: https://somewhere.example.com/favicon.ico
     urls:
       - additional.example.com
+    texts:
+      title:
+        text: additional instance
+        font: FREESCPT.TTF
+        size: 20
+        width: 5
+        height: 8
+      prename:
+        text: Hans
+        font: FREESCPT.TTF
+        size: 20
+        width: 165
+        height: 33
+      surname:
+        text: Mustermann
+        font: FREESCPT.TTF
+        size: 20
+        width: 165
+        height: 33

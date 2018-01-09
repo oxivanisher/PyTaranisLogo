@@ -1,0 +1,749 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"gra",
+				"gravatar_url"
+			],
+			[
+				"ema",
+				"emailLines"
+			],
+			[
+				"exc",
+				"except"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"dev",
+				"devStats"
+			],
+			[
+				"de",
+				"devStats"
+			],
+			[
+				"devs",
+				"devsHash"
+			],
+			[
+				"key",
+				"keyfilter"
+			],
+			[
+				"ho",
+				"hostsData"
+			],
+			[
+				"hosts",
+				"hostsData"
+			],
+			[
+				"hos",
+				"hostId"
+			],
+			[
+				"write",
+				"writerow"
+			],
+			[
+				"wr",
+				"writeCsv"
+			],
+			[
+				"dict",
+				"dictSet"
+			],
+			[
+				"hosti",
+				"hostIds"
+			],
+			[
+				"list",
+				"listKeys"
+			],
+			[
+				"user",
+				"userKeyA"
+			],
+			[
+				"userK",
+				"userKeyA"
+			],
+			[
+				"fore",
+				"foremanServer"
+			],
+			[
+				"I",
+				"ITSe06_user"
+			],
+			[
+				"wat",
+				"watermarkUserField"
+			],
+			[
+				"file",
+				"filePath"
+			],
+			[
+				"look",
+				"lookupUser"
+			],
+			[
+				"attr",
+				"attrList"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "case",
+		"selected_items":
+		[
+			[
+				"case",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"updat",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"q",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git q",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"gi tadd",
+				"Git: Add Current File"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"qu",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"puws",
+				"Git (SideBarGit): Push with options…"
+			],
+			[
+				"branch",
+				"Git: Change Branch"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"merge",
+				"Git: Merge Branch"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pretty json",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"package all",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"json va",
+				"Pretty JSON: Validate"
+			],
+			[
+				"change",
+				"Git: Change Branch"
+			],
+			[
+				"git stats",
+				"Git: Status"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"change bran",
+				"Git: Change Branch"
+			],
+			[
+				"branch add",
+				"Git (SideBarGit): Branch: new from cleaned current and switch to…"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"brnch",
+				"Git: Delete Branch"
+			],
+			[
+				"check",
+				"Git: Checkout Current File"
+			],
+			[
+				"checkou",
+				"Git: Checkout Tag"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"co",
+				"Git: Commit"
+			],
+			[
+				"pu",
+				"Git: Push"
+			],
+			[
+				"reset",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"packages",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"pus\t",
+				"Git: Push"
+			],
+			[
+				"git branch",
+				"Git: Change Branch"
+			],
+			[
+				"git diff",
+				"Git: Diff All Files"
+			],
+			[
+				"git branc",
+				"Git: Change Branch"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"syntax bas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"comi",
+				"Git: Commit"
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git a",
+				"Git: Add Current File"
+			],
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"pull ",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git bran",
+				"Git: New Branch"
+			],
+			[
+				"amen",
+				"Git: Amend Commit"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"gitad",
+				"Git: Add Current File"
+			],
+			[
+				"git amen",
+				"Git: Amend Commit"
+			],
+			[
+				"git lo",
+				"Git: Log All"
+			],
+			[
+				"pull re",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git am",
+				"Git: Amend Commit"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"rebase",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"powers",
+				"Set Syntax: PowerShell"
+			],
+			[
+				"package con",
+				"Package Control: Install Package"
+			],
+			[
+				"prett",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"chan",
+				"Git: Change Branch"
+			],
+			[
+				"bran",
+				"Git: Change Branch"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"puas",
+				"Git (SideBarGit): Push All Branches"
+			],
+			[
+				"package",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"bran           ",
+				"Git: Change Branch"
+			],
+			[
+				"packa",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"git reset",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"fetch",
+				"Git: Fetch"
+			],
+			[
+				"package update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 497.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/marcu/ownCloud/Recent/knowhow/My IBAN.txt",
+		"/home/marcu/ownCloud/Documents/Kreuz IT/wifi_reboot_sequence.txt",
+		"/home/marcu/Downloads/config-pfsense.thunderbluff.lan-20171229141247.xml",
+		"/home/marcu/dev/private/moss-bf-rf/run.py",
+		"/home/marcu/ownCloud/Settings/RC/GEP130X2/2017-12-01 01.txt",
+		"/home/marcu/ownCloud/Recent/delivery_tracking.txt",
+		"/home/marcu/ownCloud/Settings/JamesII/config.yaml",
+		"/home/marcu/ownCloud/tmp/tbs_bluetooth_hack.txt",
+		"/tmp/nsmail.asc",
+		"/home/marcu/adsyCloud/Documents/About.txt",
+		"/home/marcu/.cache/.fr-nzDcw3/MONyog/README",
+		"/home/marcu/ownCloud/Recent/modelreg.txt",
+		"/home/marcu/ownCloud/Recent/stingy_contest.txt",
+		"/home/marcu/ownCloud/Recent/rcmodelreg.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/TQMi/audit_notes.txt",
+		"/home/marcu/dev/private/JamesII/src/james/__init__.py",
+		"/home/marcu/dev/private/JamesII/src/james.py",
+		"/home/marcu/ownCloud/Settings/Applications/Sublime Text/lizenz.txt",
+		"/home/marcu/ownCloud/tmp/crash.log",
+		"/home/marcu/ownCloud/tmp/Cyrill in Naardem/PaymentConfirmation.pdf",
+		"/home/marcu/ownCloud/tmp/Cyrill in Naardem/Aenderung Revision FMG.pdf",
+		"/home/marcu/Downloads/potoss_followup.txt",
+		"/home/marcu/Downloads/inline.txt",
+		"/home/marcu/ownCloud/Settings/RC/DALRC RX215/2017-08-23 00.txt",
+		"/home/marcu/ownCloud/Recent/my_bf_settings.txt",
+		"/home/marcu/ownCloud/Recent/bf3.2 proposal.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/Teamleiter Dokumente/MAG Things/2017Q3/David Vollmer/notes.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/Teamlead/CvW.txt",
+		"/home/marcu/ownCloud/Settings/RC/QAV-Skitzo/2017-08-05 01.txt",
+		"/home/marcu/dev/private/MMOJunkiesPyFriends/mmofriends/templates/about.html",
+		"/home/marcu/dev/private/JamesII/src/james/plugin/proximity.py",
+		"/home/marcu/dev/private/JamesII/config/config.yaml.example",
+		"/home/marcu/dev/private/MMOJunkiesPyFriends/mmofriends/templates/base.html",
+		"/home/marcu/.cache/.fr-ngBQd4/tomcat-connectors-1.2.42-src/native/BUILDING.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/Microsoft/meeting_4_apr.txt",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/rf_vs_gpl_devs.yml",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/gource_fetch_gravatar_email.pl",
+		"/home/marcu/ownCloud/Documents/Kreuz IT/fw01_interfaces.txt",
+		"/home/marcu/Downloads/mon01 (1).key",
+		"/home/marcu/ownCloud/Settings/RC/KingKong 90GT/2017-06-12 00.txt",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/rf_vs_gpl_devs.py",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/rf_vs_gpl.sh",
+		"/home/marcu/Downloads/Kreuz+Internal+CA (3).crt",
+		"/home/marcu/Downloads/mon01.key",
+		"/home/marcu/Downloads/mon01.crt",
+		"/tmp/mozilla_marcu0/workers.porperties.txt",
+		"/home/marcu/ownCloud/Documents/Kreuz IT/add_ssh_key.sh",
+		"/home/marcu/ownCloud/Recent/YouTube_Video_Ideen.txt",
+		"/home/marcu/ownCloud/Recent/YouTube_Video_Notes.txt",
+		"/home/marcu/ownCloud/Recent/kreuz_ansible.txt",
+		"/home/marcu/ownCloud/scripts/cf_config_parser.py",
+		"/home/marcu/ownCloud/Settings/Linux/debian/preseed-debian-kreuz.cfg",
+		"/home/marcu/ownCloud/Adfinis/Documents/Microsoft/microsoft_live_accounts_for_azure.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/microsoft_live_accounts_for_azure.txt",
+		"/home/marcu/ownCloud/Settings/Security_and_Auth/Linode/scratch_code.txt",
+		"/home/marcu/Downloads/dev_stats.txt",
+		"/home/marcu/ownCloud/Shared/MultiWii to Betaflight/dev_stats.txt",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/work/combined_new.txt",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl/work/combined.txt",
+		"/home/marcu/tmp/rf_vs_gpl/combined.txt",
+		"/home/marcu/ownCloud/scripts/tools/gource_fetch_gravatar_email.pl",
+		"/home/marcu/ownCloud/scripts/rf_vs_gpl.sh",
+		"/home/marcu/ownCloud/scripts/undo_logrotate.py",
+		"/home/marcu/ownCloud/Recent/rf_vs_gpl_devs.txt",
+		"/home/marcu/ownCloud/scripts/tools/gource_fetch_gravatar.pl",
+		"/home/marcu/dev/adsy/desktop-provisioning/preseed/preseed-ubuntu.txt",
+		"/home/marcu/ownCloud/Adfinis/Documents/Team Lead Notes.txt",
+		"/home/marcu/ownCloud/Documents/3D Printing/Relief/Terrain2STL.url",
+		"/home/marcu/ownCloud/Recent/SOC20X_debain_patch.sh",
+		"/home/marcu/ownCloud/Settings/RC/Tricopter V4/2017-01-05 01.txt",
+		"/home/marcu/Downloads/sw02.thunderbluff.lan.crt",
+		"/home/marcu/Downloads/sw02.thunderbluff.lan.key",
+		"/home/marcu/ownCloud/Recent/delivery_tracking_conflict-20170130-201501.txt",
+		"/home/marcu/ownCloud/Recent/netboot.txt",
+		"/home/marcu/ownCloud/Recent/things_to_buy_for_drones.txt",
+		"/home/marcu/ownCloud/Documents/3D Printing/3D Hubs/4163558/4163558 PET - 4x drawer-combo_original_mm.gcode-results.txt",
+		"/home/marcu/ownCloud/Documents/3D Printing/3D Hubs/4163558/PET - 1x drawer-combo_original_mm.gcode-results.txt",
+		"/home/marcu/ownCloud/Recent/desktop_deployment_blog.txt$",
+		"/home/marcu/dev/roche/roche-rlc-foreman.src/ansible/roles/report_generator/tasks/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-foreman.src/ansible/roles/report_generator/defaults/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/.gitignore",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/config.yml.example",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/README.md",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/foreman_facts_report.py",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/config.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/templates/foreman_facts_uploader.j2",
+		"/tmp/mozilla_marcu0/filtered_2016-12-12_14_35_01_+0000.csv",
+		"/tmp/mozilla_marcu0/filtered_2016-12-09_12-07-51_+0000.csv",
+		"/home/marcu/Downloads/foreman_facts_report.py.log",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/group_vars/asia",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/roche_apt_repo/tasks/main.yml",
+		"/tmp/filtered_2016-12-05_13:28:10_+0000.csv",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/testing.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/desktop.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/group_vars/lab",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/group_vars/sandpit",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/group_vars/production",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/group_vars/adsy_lab",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/files/apt_package_gatherer.py",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/tasks/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/templates/ansible_facts.j2",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/defaults/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe18/files/foreman_facts_uploader.py",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/foreman/client.py",
+		"/home/marcu/dev/roche/roche-rlc-report-generator.src/foreman/definitions/1.7.2-v1.json",
+		"/tmp/hosts_full.csv",
+		"/tmp/facts_full.csv",
+		"/home/marcu/ownCloud/tmp/facts.csv",
+		"/home/marcu/ownCloud/tmp/foreman_facts_report.py",
+		"/tmp/ansible_facts.json",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe14/tasks/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe04/templates/cron.daily/rlc-ansible-pull.j2",
+		"/home/marcu/dev/roche/roche-rlc-scripts.src/src/usr/bin/roche-rlc-luks-key-changer",
+		"/home/marcu/ownCloud/Adfinis/Documents/Ruag/install.log",
+		"/home/marcu/dev/roche/roche-rlc-scripts.src/src/debian/roche-rlc-scripts/usr/bin/roche-rlc-luks-key-changer",
+		"/media/marcu/SYSRESC/tmp/roche-rlc-luks-key-changer",
+		"/home/marcu/ownCloud/Shared/Public 3D Objects/Taranis/DIY JR Module Arduino and nrf24l01 for RC Taranis X9D by elektronikadonbosco - Thingiverse.url",
+		"/home/marcu/ownCloud/Shared/Public 3D Objects/RC FPV/Fatshark Fan Mount.txt",
+		"/home/marcu/dev/roche/roche-rlc-antivirus.src/src/usr/bin/roche-rlc-antivirus14-installer",
+		"/home/marcu/dev/roche/roche-rlc-antivirus.src/src/debian/roche-rlc-antivirus/usr/bin/roche-rlc-antivirus14-installer",
+		"/media/marcu/SYSRESC/tmp/update.log",
+		"/home/marcu/dev/roche/roche-rlc-scripts.src/src/usr/bin/roche-rlc-watermark-updater",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe17/meta/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe17/defaults/main.yml",
+		"/home/marcu/dev/roche/roche-rlc-scripts.src/src/usr/bin/roche-rlc-add-user-to-vpn-group",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/ITSe14/templates/80crypto-keys.j2",
+		"/home/marcu/dev/roche/roche-rlc-configmgmt.src/roles/Admi03/templates/sudoers.d/80_RLC_admin.j2",
+		"/home/marcu/dev/roche/roche-rlc-vpn-client.src/src/debian/control"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 121.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 326.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

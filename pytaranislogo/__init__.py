@@ -89,10 +89,10 @@ def getInstanceSettings():
                 currentInstance = instance
 
     # set the dynamic instance variables
-    cfg['texts']['title']['text'] = cfg['instances'][currentInstance]['title']
     cfg['logoImage'] = cfg['instances'][currentInstance]['logoImage']
     cfg['exampleImage'] = cfg['instances'][currentInstance]['exampleImage']
     cfg['backgroundImage'] = cfg['instances'][currentInstance]['backgroundImage']
+    cfg['texts'] = cfg['instances'][currentInstance]['texts']
 
     try:
         cfg['instances'][currentInstance]['favicon']

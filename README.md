@@ -5,7 +5,7 @@ This tool lets you create custom taranis boot/start images. The dimensions for t
 ## How to install
 * Setup things dist/pytaranislogo.cfg (copy from pytaranislogo.cfg.example)
 * Setup things config/settings.yml (copy from settings.yml.example)
-* Download FREESCPT.TFF from http://fontzone.net/download/freestyle-script to resources/
+* Download FREESCPT.TTF from http://fontzone.net/download/freestyle-script to resources/
 * For each instance:
 ** Generate your base image from dist/x9-empty.xcf and copy it to `resources/logoImage` (from `settings.yml`)
 ** Generate (download) the example image and copy/convert it to `static/img/exampleImage` (from `settings.yml`)
