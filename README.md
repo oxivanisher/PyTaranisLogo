@@ -13,9 +13,10 @@ This tool lets you create custom taranis boot/start images. The dimensions for t
 * Setup logrotate to rotate log/*.log
 
 
-### Python Requirements:
-*Flask
-*Imaging Library
+### Python Requirements
+* Flask
+* Imaging Library
+
 
 ### To fix Pillow problems > Pillow is a PIL replacement because PIL is EOL:
   apt-get install libfreetype6-dev
