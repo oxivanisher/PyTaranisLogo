@@ -30,7 +30,7 @@ instances:
     exampleImage: default-x9.png
     backgroundImage: default-bg.jpg
     urls:
-      - taranis.example.com:443
+      - taranis.example.com
   additional:
     title: additional instance
     logoImage: additional-x9.bmp
@@ -38,4 +38,4 @@ instances:
     backgroundImage: additional-bg.jpg
     favicon: https://somewhere.example.com/favicon.ico
     urls:
-      - additional.example.com:443
+      - additional.example.com
