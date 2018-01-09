@@ -2,11 +2,16 @@ This tool lets you create custom taranis boot/start images. The dimensions for t
 * Taranis X7: 128x64px 4bit PNG greyscaled bitmap
 * Taranis X9: 212X64px 4bit PNG greyscaled bitmap
 
-### Font from:
-http://fontzone.net/download/freestyle-script
+## How to install
+* Setup things dist/pytaranislogo.cfg (copy from pytaranislogo.cfg.example)
+* Setup things config/settings.yml (copy from settings.yml.example)
+* Download FREESCPT.TFF from http://fontzone.net/download/freestyle-script to resources/
+* For each instance:
+** Generate your base image from dist/x9-empty.xcf and copy it to resources/logoImage (from settings.yml)
+** Generate (download) the example image and copy/convert it to static/img/exampleImage (from settings.yml)
+** Copy a background image to static/img/backgroundImage (from settings.yml)
+* Setup logrotate to rotate log/*.log
 
-### Original Image by:
-Mitch Rabada
 
 ### Python Requirements:
 *Flask

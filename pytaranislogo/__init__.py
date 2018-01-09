@@ -83,14 +83,23 @@ def getInstanceSettings():
 
     # detect host magic, or else set settings of cfg['defaults']['defaultInstance']
     currentInstance = cfg['defaults']['defaultInstance']
-    for instance in cfg['instances']:
-        if request.host in instance['urls']:
-            currentInstance = instance
+    for instance in cfg['instances'].keys():
+        for url in cfg['instances'][instance]['urls']:
+            if request.host == url:
+                currentInstance = instance
 
     # set the dynamic instance variables
     cfg['texts']['title']['text'] = cfg['instances'][currentInstance]['title']
-    cfg['favicon'] = cfg['instances'][currentInstance]['favicon']
     cfg['logoImage'] = cfg['instances'][currentInstance]['logoImage']
+    cfg['exampleImage'] = cfg['instances'][currentInstance]['exampleImage']
+    cfg['backgroundImage'] = cfg['instances'][currentInstance]['backgroundImage']
+
+    try:
+        cfg['instances'][currentInstance]['favicon']
+    except KeyError:
+        pass
+    else:
+        cfg['favicon'] = cfg['instances'][currentInstance]['favicon']
 
     return cfg
 
@@ -142,6 +151,16 @@ def favicon():
     cfg = getInstanceSettings()
     return redirect(cfg['favicon'])
 
+@app.route('/background')
+def background_image():
+    cfg = getInstanceSettings()
+    return redirect(url_for('static', filename="img/%s" % cfg['backgroundImage']))
+
+@app.route('/example.png')
+def example_image():
+    cfg = getInstanceSettings()
+    return redirect(url_for('static', filename="img/%s" % cfg['exampleImage']))
+
 @app.route('/robots.txt')
 def get_robots_txt():
     ret = []
@@ -182,11 +201,11 @@ def image_render():
     def genDlName(title, logoImage, surname, prename, fileExtension):
         def cleanup(string):
             return string.encode('utf-8').lower().replace(' ', '_')
-        return "%s-%s-%s.%s" % (cleanup(title),
-                                cleanup(logoImage),
-                                cleanup(surname),
-                                cleanup(prename),
-                                fileExtension)
+        return "%s-%s-%s-%s.%s" % (cleanup(title),
+                                   cleanup(logoImage),
+                                   cleanup(surname),
+                                   cleanup(prename),
+                                   fileExtension)
 
     cfg = getInstanceSettings()
 
@@ -199,7 +218,7 @@ def image_render():
     plr = PyTanarisLogo(cfg, app.logger)
 
     fileName = "%s.%s" % (plr.run(), cfg['defaults']['extension'])
-    dlName = genDlName(request.form['title'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
+    dlName = genDlName(request.form['title'], cfg['logoImage'], request.form['surname'], request.form['prename'], cfg['defaults']['extension'])
 
     if os.path.isfile(os.path.join(cfg['defaults']['destinationPath'], fileName)):
         app.logger.info("[System] Sending file: %s" % (fileName))

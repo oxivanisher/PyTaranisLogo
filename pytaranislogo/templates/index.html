@@ -1,16 +1,16 @@
 {%- extends "base.html" -%}
-{%- block title %}Index{% endblock -%}
+{%- block title %}Taranis X9 Boot Logo creator{% endblock -%}
 {%- block content -%}
-<div class="content_block">
+<div class="content">
 	<form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
-	<h2>Taranis Boot Logo creator</h2>
+	<h2>Taranis X9 Boot Logo creator</h2>
 	<br />
-	<img src="{{ url_for('static', filename='img/example.png') }}" style="border:1px solid #000000; box-shadow: 10px 10px 5px #888888;"><br />
+	<img src="{{ url_for('example_image') }}"><br />
 	<br />
 	<dl>
 		<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus">
-		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
 		<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}">
+		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
 	</dl>
 	<button class="btn btn-default" type="submit">Submit</button> <button class="btn btn-default" type="reset">Reset</button>
 	</form>

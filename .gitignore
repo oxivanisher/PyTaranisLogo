@@ -1,5 +1,6 @@
 # My Excludes
 pytaranislogo/static/output/*
+pytaranislogo/static/img/*
 resources/*
 dist/*.cfg
 config/*.yml
