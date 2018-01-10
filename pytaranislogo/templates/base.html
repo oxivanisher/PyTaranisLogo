@@ -21,24 +21,16 @@
 		{# Favicon -#}
 		<link rel="shortcut icon" href="{{ url_for('favicon') }}">
 		{# jQuery and jQueryUI -#}
-		{#
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script> #}
 		<link href="{{ url_for('static', filename='jquery/jquery-ui.css') }}" rel="stylesheet" />
 		<link href="{{ url_for('static', filename='jquery/jquery-ui.structure.min.css') }}" rel="stylesheet" />
 		<link href="{{ url_for('static', filename='jquery/jquery-ui.theme.min.css') }}" rel="stylesheet" />
 
 		{# Bootstrap -#}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		{#
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		#}
 		{# Font Awesome -#}
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" />
 		{# PyTaranisLogo internal stuff -#}
 		<link href="{{ url_for('static', filename='pytaranislogo.css') }}" rel="stylesheet" media="all" type="text/css" />
-		{#
-		<script src="{{ url_for('static', filename='pytaranislogo.js') }}"></script>#}
 		{%- endblock %}
 	</head>
 	<body>
