@@ -141,10 +141,6 @@ def add_header(response):
     response.cache_control.min_fresh = 1
     return response
 
-@app.route('/About')
-def about():
-    return render_template('about.html')
-
 # support routes
 @app.route('/favicon.ico')
 def favicon():
