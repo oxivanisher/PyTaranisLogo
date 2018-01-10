@@ -4,6 +4,7 @@ pytaranislogo/static/img/*
 resources/*
 dist/*.cfg
 config/*.yml
+*.sublime-*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
