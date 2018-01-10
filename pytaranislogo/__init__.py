@@ -83,13 +83,15 @@ def getInstanceSettings():
 
     # detect host magic, or else set settings of cfg['defaults']['defaultInstance']
     inst = cfg['instances'][cfg['defaults']['defaultInstance']]
-    for instance in cfg['instances'].keys():
+    for instance in cfg['instances']:
         for url in cfg['instances'][instance]['urls']:
             if request.host == url:
-                inst = cfg['instances'][currentInstance]
+                inst = cfg['instances'][instance]
 
     # check for flavour
     flavour = session.get('flavour', None)
+    if flavour not in inst['flavours'].keys():
+        flavour = None
     if not flavour:
         flavour = inst['flavours'].keys()[0]
 
@@ -100,6 +102,20 @@ def getInstanceSettings():
     cfg['texts'] = inst['flavours'][flavour]['texts']
     cfg['titleText'] = inst['titleText']
     cfg['flavours'] = inst['flavours'].keys()
+
+    # collect all instances to create a dropdown to choose from
+    cfg['sites'] = []
+    for instance in cfg['instances']:
+        selected = False
+        for url in cfg['instances'][instance]['urls']:
+            if request.host == url:
+                selected = True
+
+        cfg['sites'].append({
+            "name": cfg['instances'][instance]['titleText'],
+            "url": cfg['instances'][instance]['urls'][0],
+            "selected": selected,
+            })
 
     try:
         inst['favicon']
@@ -197,6 +213,7 @@ def index():
     values['prename'] = cfg['defaults']['prename']
     values['surname'] = cfg['defaults']['surname']
     values['flavours'] = cfg['flavours']
+    values['sites'] = cfg['sites']
 
     return render_template('index.html', values=values)
 

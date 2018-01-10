@@ -4,55 +4,76 @@ defaults:
   defaultFavicon: https://example.com/favicon.ico
   resourcesPath: resources/
   destinationPath: output/
+  prename: Hans
+  surname: Mustermann
 instances:
   default:
-    logoImage: default-x9.bmp
-    exampleImage: default-x9.png
     backgroundImage: default-bg.jpg
+    titleText: default instance
     urls:
       - taranis.example.com
-    texts:
-      title:
-        text: default instance
-        font: FREESCPT.TTF
-        size: 20
-        width: 5
-        height: 8
-      prename:
-        text: Hans
-        font: FREESCPT.TTF
-        size: 20
-        width: 165
-        height: 33
-      surname:
-        text: Mustermann
-        font: FREESCPT.TTF
-        size: 20
-        width: 142
-        height: 13
+    flavours:
+      X9:
+        logoImage: default-x9.bmp
+        exampleImage: default-x9.png
+        texts:
+          title:
+            font: FREESCPT.TTF
+            size: 20
+            width: 5
+            height: 8
+          prename:
+            font: FREESCPT.TTF
+            size: 20
+            width: 165
+            height: 33
+          surname:
+            font: FREESCPT.TTF
+            size: 20
+            width: 142
+            height: 13
+      X7:
+        logoImage: default-x7.bmp
+        exampleImage: default-x7.png
+        texts:
+          title:
+            font: FREESCPT.TTF
+            size: 20
+            width: 2
+            height: 0
+          prename:
+            font: FREESCPT.TTF
+            size: 20
+            width: 50
+            height: 40
+          surname:
+            font: FREESCPT.TTF
+            size: 20
+            width: 50
+            height: 20
+
   additional:
-    logoImage: additional-x9.bmp
-    exampleImage: additional-x9.png
-    backgroundImage: additional-bg.jpg
-    favicon: https://somewhere.example.com/favicon.ico
+    backgroundImage: default-bg.jpg
+    titleText: additional instance
     urls:
       - additional.example.com
-    texts:
-      title:
-        text: additional instance
-        font: FREESCPT.TTF
-        size: 20
-        width: 5
-        height: 8
-      prename:
-        text: Hans
-        font: FREESCPT.TTF
-        size: 20
-        width: 165
-        height: 33
-      surname:
-        text: Mustermann
-        font: FREESCPT.TTF
-        size: 20
-        width: 142
-        height: 13
+    flavours:
+      X9:
+        logoImage: additional-x9.bmp
+        exampleImage: additional-x9.png
+        texts:
+          title:
+            font: FREESCPT.TTF
+            size: 20
+            width: 5
+            height: 8
+          prename:
+            font: FREESCPT.TTF
+            size: 20
+            width: 165
+            height: 33
+          surname:
+            font: FREESCPT.TTF
+            size: 20
+            width: 142
+            height: 13

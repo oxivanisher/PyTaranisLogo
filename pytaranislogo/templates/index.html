@@ -6,17 +6,22 @@
 	<img src="{{ url_for('example_image') }}"><br />
 	<br />
 	<dl>
+		<dd>Sites <select onChange="window.location.href=this.value">
+			{%- for site in values.sites %}
+		    <option value="http://{{ site.url }}"{% if site.selected==True %} selected="selected"{% endif %}>{{ site.name }}</option>
+			{%- endfor %}
+		</select></dd>
 		<form action="{{ url_for('setFlavour') }}" if="flavour" method="post">
 		<dd>Taranis model <select onchange="this.form.submit()" name="flavour" size="1">
-			{% for flavour in values.flavours %}
+			{%- for flavour in values.flavours %}
 			<option{% if session.flavour==flavour %} selected="selected"{% endif %}>{{ flavour }}</option>
-			{% endfor %}
-		</select>
+			{%- endfor %}
+		</select></dd>
 		</form>
 		<form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
-		<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus">
-		<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}">
-		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
+		<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus"></dd>
+		<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}"></dd>
+		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}"></dd>
 	</dl>
 	<button class="btn btn-default" type="submit">Submit</button> <button class="btn btn-default" type="reset">Reset</button>
 	</form>
