@@ -37,60 +37,40 @@
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" />
 		{# PyTaranisLogo internal stuff -#}
 		<link href="{{ url_for('static', filename='pytaranislogo.css') }}" rel="stylesheet" media="all" type="text/css" />
-		<script src="{{ url_for('static', filename='pytaranislogo.js') }}"></script>
+		{#
+		<script src="{{ url_for('static', filename='pytaranislogo.js') }}"></script>#}
 		{%- endblock %}
 	</head>
 	<body>
-		<div class="container" id="flashMessages">
+		<div class="content">
 			{%- block content %}{% endblock -%}
+			{%- with messages = get_flashed_messages(category_filter=["success"]) %}
+				{%- if messages %}
+					<div title="Success message">
+					{%- for message in messages %}
+						<div>{{ message }}</div>
+					{% endfor -%}
+					</div>
+				{% endif -%}
+			{% endwith -%}
+			{%- with messages = get_flashed_messages(category_filter=["error"]) %}
+				{%- if messages %}
+					<div title="Error message">
+					{%- for message in messages %}
+						<div>{{ message }}</div>
+					{% endfor -%}
+					</div>
+				{% endif -%}
+			{% endwith -%}
+			{%- with messages = get_flashed_messages(category_filter=["info"]) %}
+				{%- if messages %}
+					<div title="Info message">
+					{%- for message in messages %}
+						<div>{{ message }}</div>
+					{% endfor -%}
+					</div>
+				{% endif -%}
+			{% endwith -%}
 		</div>
-		{%- with messages = get_flashed_messages(category_filter=["success"]) %}
-			{%- if messages %}
-				<div id="flashDialogSuccess" title="Success message">
-				{%- for message in messages %}
-					<div class="flashMessage">{{ message }}</div>
-				{% endfor -%}
-				</div>
-			{% endif -%}
-		{% endwith -%}
-		{%- with messages = get_flashed_messages(category_filter=["error"]) %}
-			{%- if messages %}
-				<div id="flashDialogError" title="Error message">
-				{%- for message in messages %}
-					<div class="flashMessage">{{ message }}</div>
-				{% endfor -%}
-				</div>
-			{% endif -%}
-		{% endwith -%}
-		{%- with messages = get_flashed_messages(category_filter=["info"]) %}
-			{%- if messages %}
-				<div id="flashDialogInfo" title="Info message">
-				{%- for message in messages %}
-					<div class="flashMessage">{{ message }}</div>
-				{% endfor -%}
-				</div>
-			{% endif -%}
-		{% endwith -%}
-		{#
- 		{%- block footer -%}
-		<div class="bottombar">
-			<div class="fill">
-				<div class="container">
-					&copy; Copyright 2016 by <a href="http://oxi.ch/">oXiVanisher</a>.
-				</div>
-			</div>
-		</div>
-		{%- endblock %}
-		-#}
-		<script>
-			var seen = {};
-			$('.flashMessage').each(function() {
-			    var txt = $(this).text();
-			    if (seen[txt])
-			        $(this).remove();
-			    else
-			        seen[txt] = true;
-			});
-		</script>
 	</body>
 </html>
