@@ -40,6 +40,4 @@ $(function() {
             }
         }
     });
-    //Increment the idle time counter every minute.
-    var windowIdleInterval = setInterval(windowBlurTimerIncrement, 30000); // 1 minute
 });
