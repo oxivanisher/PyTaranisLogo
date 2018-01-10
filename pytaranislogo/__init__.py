@@ -82,24 +82,31 @@ def getInstanceSettings():
     cfg['favicon'] = cfg['defaults']['defaultFavicon']
 
     # detect host magic, or else set settings of cfg['defaults']['defaultInstance']
-    currentInstance = cfg['defaults']['defaultInstance']
+    inst = cfg['instances'][cfg['defaults']['defaultInstance']]
     for instance in cfg['instances'].keys():
         for url in cfg['instances'][instance]['urls']:
             if request.host == url:
-                currentInstance = instance
+                inst = cfg['instances'][currentInstance]
+
+    # check for flavour
+    flavour = session.get('flavour', None)
+    if not flavour:
+        flavour = inst['flavours'].keys()[0]
 
     # set the dynamic instance variables
-    cfg['logoImage'] = cfg['instances'][currentInstance]['logoImage']
-    cfg['exampleImage'] = cfg['instances'][currentInstance]['exampleImage']
-    cfg['backgroundImage'] = cfg['instances'][currentInstance]['backgroundImage']
-    cfg['texts'] = cfg['instances'][currentInstance]['texts']
+    cfg['logoImage'] = inst['flavours'][flavour]['logoImage']
+    cfg['exampleImage'] = inst['flavours'][flavour]['exampleImage']
+    cfg['backgroundImage'] = inst['backgroundImage']
+    cfg['texts'] = inst['flavours'][flavour]['texts']
+    cfg['titleText'] = inst['titleText']
+    cfg['flavours'] = inst['flavours'].keys()
 
     try:
-        cfg['instances'][currentInstance]['favicon']
+        inst['favicon']
     except KeyError:
         pass
     else:
-        cfg['favicon'] = cfg['instances'][currentInstance]['favicon']
+        cfg['favicon'] = inst['favicon']
 
     return cfg
 
@@ -186,11 +193,17 @@ def index():
     cfg = getInstanceSettings()
 
     values = {}
-    values['title'] = cfg['texts']['title']['text']
-    values['prename'] = cfg['texts']['prename']['text']
-    values['surname'] = cfg['texts']['surname']['text']
+    values['title'] = cfg['titleText']
+    values['prename'] = cfg['defaults']['prename']
+    values['surname'] = cfg['defaults']['surname']
+    values['flavours'] = cfg['flavours']
 
-    return render_template('index.html', values = values)
+    return render_template('index.html', values=values)
+
+@app.route('/Flavour', methods=['POST'])
+def setFlavour():
+    session['flavour'] = request.form['flavour']
+    return redirect(url_for('index'))
 
 @app.route('/Render', methods=['POST'])
 def image_render():
@@ -205,7 +218,7 @@ def image_render():
 
     cfg = getInstanceSettings()
 
-    cfg['texts']['title']['text'] = request.form['title']
+    cfg['titleText'] = request.form['title']
     cfg['texts']['prename']['text'] = request.form['prename']
     cfg['texts']['surname']['text'] = request.form['surname']
     cfg['defaults']['resourcesPath'] = os.path.join(app.config['scriptPath'], '..', 'resources')

@@ -44,7 +44,7 @@ class PyTanarisLogo(object):
             self.log.debug("[Render] Configuration loaded")
 
     def parseConfig(self):
-        self.title = self.cfg['texts']['title']['text']
+        self.title = self.cfg['titleText']
         self.surname = self.cfg['texts']['surname']['text']
         self.prename = self.cfg['texts']['prename']['text']
         self.extension = self.cfg['defaults']['extension']

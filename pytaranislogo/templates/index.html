@@ -2,12 +2,18 @@
 {%- block title %}Taranis X9 Boot Logo creator{% endblock -%}
 {%- block content -%}
 <div class="content">
-	<form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
-	<h2>Taranis X9 Boot Logo creator</h2>
-	<br />
+	<h2>Taranis Boot Logo creator</h2>
 	<img src="{{ url_for('example_image') }}"><br />
 	<br />
 	<dl>
+		<form action="{{ url_for('setFlavour') }}" if="flavour" method="post">
+		<dd>Taranis model <select onchange="this.form.submit()" name="flavour" size="1">
+			{% for flavour in values.flavours %}
+			<option{% if session.flavour==flavour %} selected="selected"{% endif %}>{{ flavour }}</option>
+			{% endfor %}
+		</select>
+		</form>
+		<form action="{{ url_for('image_render') }}" id="render" method="post" autocomplete="on">
 		<dd><input type="text" name="title" class="backend" value="{{ values.title }}" autofocus="autofocus">
 		<dd><input type="text" name="surname" class="backend" value="{{ values.surname }}">
 		<dd><input type="text" name="prename" class="backend" value="{{ values.prename }}">
@@ -15,12 +21,10 @@
 	<button class="btn btn-default" type="submit">Submit</button> <button class="btn btn-default" type="reset">Reset</button>
 	</form>
 
-	<h2>About</h2>
+	<h3>About</h3>
 	This is a small web application to render customized Taranis boot logos.<br />
 	The sourcecode is opensource an can be found <a href="https://github.com/oxivanisher/PyTaranisLogo" target="_blank">here</a>.<br />
-	<br />
-	Have fun,<br />
-	oXiVanisher, <a href="https://oxi.ch" target="_blank">https://oxi.ch</a>.
+	Have fun, oXiVanisher <a href="https://oxi.ch" target="_blank">https://oxi.ch</a>.
 
 	{% if config.MY_CONFIGURATION != "" %}
 	<h3>Advertisement to support me</h3>
