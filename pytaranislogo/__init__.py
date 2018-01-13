@@ -190,7 +190,7 @@ def get_robots_txt():
 
 @app.route('/sitemap.xml')
 def get_sitemap_xml():
-    methodsToList = [ 'index', 'about' ]
+    methodsToList = [ 'index' ]
     ret = []
     ret.append('<?xml version="1.0" encoding="UTF-8"?>')
     ret.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
