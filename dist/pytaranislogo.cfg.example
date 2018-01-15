@@ -4,8 +4,6 @@ ADMINS = ['user@domain.tld']
 APPSECRET = 'some key'
 COMPRESS_DEBUG = True
 COMPRESS_MIMETYPES = ['text/html', 'text/css', 'text/xml', 'application/json', 'application/javascript', 'text/javascript']
-GOOGLEAD_CLIENT = ""
-GOOGLEAD_SLOT = ""
 
 # email
 EMAILSERVER = "127.0.0.1"

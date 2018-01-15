@@ -11,6 +11,9 @@ instances:
     backgroundImage: default-bg.jpg
     titleText: default instance
     ssl: True
+    adsense:
+      client: 
+      slot: 
     urls:
       - taranis.example.com
     flavours:
@@ -57,6 +60,9 @@ instances:
     backgroundImage: default-bg.jpg
     titleText: additional instance
     ssl: False
+    adsense:
+      client: 
+      slot: 
     urls:
       - additional.example.com
     flavours:
