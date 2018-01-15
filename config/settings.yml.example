@@ -10,6 +10,7 @@ instances:
   default:
     backgroundImage: default-bg.jpg
     titleText: default instance
+    ssl: True
     urls:
       - taranis.example.com
     flavours:
@@ -55,6 +56,7 @@ instances:
   additional:
     backgroundImage: default-bg.jpg
     titleText: additional instance
+    ssl: False
     urls:
       - additional.example.com
     flavours:

@@ -114,6 +114,7 @@ def getInstanceSettings():
         cfg['sites'].append({
             "name": cfg['instances'][instance]['titleText'],
             "url": cfg['instances'][instance]['urls'][0],
+            "ssl": cfg['instances'][instance]['ssl'],
             "selected": selected,
             })
 

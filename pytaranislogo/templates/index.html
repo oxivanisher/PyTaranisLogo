@@ -7,7 +7,7 @@
 <dl>
 	<dd>Sites <select onChange="window.location.href=this.value">
 		{%- for site in values.sites %}
-	    <option value="http://{{ site.url }}"{% if site.selected==True %} selected="selected"{% endif %}>{{ site.name }}</option>
+	    <option value="{% if site.ssl %}https{% else %}http{% endif %}://{{ site.url }}"{% if site.selected==True %} selected="selected"{% endif %}>{{ site.name }}</option>
 		{%- endfor %}
 	</select></dd>
 	<form action="{{ url_for('setFlavour') }}" if="flavour" method="post">
