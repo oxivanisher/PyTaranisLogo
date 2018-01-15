@@ -102,6 +102,8 @@ def getInstanceSettings():
     cfg['texts'] = inst['flavours'][flavour]['texts']
     cfg['titleText'] = inst['titleText']
     cfg['flavours'] = inst['flavours'].keys()
+    cfg['adsense_client'] = None
+    cfg['adsense_slot'] = None
 
     # collect all instances to create a dropdown to choose from
     cfg['sites'] = []
@@ -110,6 +112,8 @@ def getInstanceSettings():
         for url in cfg['instances'][instance]['urls']:
             if request.host == url:
                 selected = True
+                cfg['adsense_client'] = cfg['instances'][instance]['adsense']['client']
+                cfg['adsense_slot'] = cfg['instances'][instance]['adsense']['slot']
 
         cfg['sites'].append({
             "name": cfg['instances'][instance]['titleText'],
@@ -215,6 +219,8 @@ def index():
     values['surname'] = cfg['defaults']['surname']
     values['flavours'] = cfg['flavours']
     values['sites'] = cfg['sites']
+    values['adsense_client'] = cfg['adsense_client']
+    values['adsense_slot'] = cfg['adsense_slot']
 
     return render_template('index.html', values=values)
 
