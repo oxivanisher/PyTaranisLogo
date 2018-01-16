@@ -78,17 +78,17 @@ class PyTanarisLogo(object):
         draw.text((self.cfg['texts']['title']['width'],
                    self.cfg['texts']['title']['height']),
                   self.title,
-                  (self.cfg['texts']['title']['color']),
+                  fill=(self.cfg['texts']['title']['color']),
                   font=titleFont)
         draw.text((self.cfg['texts']['surname']['width'],
                    self.cfg['texts']['surname']['height']),
                   self.surname,
-                  (self.cfg['texts']['surname']['color']),
+                  fill=(self.cfg['texts']['surname']['color']),
                   font=surnameFont)
         draw.text((self.cfg['texts']['prename']['width'],
                    self.cfg['texts']['prename']['height']),
                   self.prename,
-                  (self.cfg['texts']['prename']['color']),
+                  fill=(self.cfg['texts']['prename']['color']),
                   font=prenameFont)
 
         self.log.debug("[Render] Rendered image")
