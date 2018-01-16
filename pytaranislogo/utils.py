@@ -56,30 +56,52 @@ class PyTanarisLogo(object):
         image = Image.open(os.path.join(self.resourcePath, self.sourcefile))
         draw = ImageDraw.Draw(image)
 
-        titleFontPath = os.path.join(self.resourcePath, self.cfg['texts']['title']['font'])
-        surnameFontPath = os.path.join(self.resourcePath, self.cfg['texts']['surname']['font'])
-        prenameFontPath = os.path.join(self.resourcePath, self.cfg['texts']['prename']['font'])
-        
+        titleFontPath = os.path.join(self.resourcePath,
+                                     self.cfg['texts']['title']['font'])
+        surnameFontPath = os.path.join(self.resourcePath,
+                                       self.cfg['texts']['surname']['font'])
+        prenameFontPath = os.path.join(self.resourcePath,
+                                       self.cfg['texts']['prename']['font'])
+
         self.log.debug("[Render] Loading title font: %s" % (titleFontPath))
-        titleFont = ImageFont.truetype(titleFontPath, self.cfg['texts']['title']['size'])
+        titleFont = ImageFont.truetype(titleFontPath,
+                                       self.cfg['texts']['title']['size'])
 
         self.log.debug("[Render] Loading surname font: %s" % (surnameFontPath))
-        surnameFont = ImageFont.truetype(surnameFontPath, self.cfg['texts']['surname']['size'])
+        surnameFont = ImageFont.truetype(surnameFontPath,
+                                         self.cfg['texts']['surname']['size'])
 
         self.log.debug("[Render] Loading prename font: %s" % (prenameFontPath))
-        prenameFont = ImageFont.truetype(prenameFontPath, self.cfg['texts']['prename']['size'])
+        prenameFont = ImageFont.truetype(prenameFontPath,
+                                         self.cfg['texts']['prename']['size'])
 
-        draw.text((self.cfg['texts']['title']['width'], self.cfg['texts']['title']['height']),self.title,(16),font=titleFont)
-        draw.text((self.cfg['texts']['surname']['width'], self.cfg['texts']['surname']['height']),self.surname,(16),font=surnameFont)
-        draw.text((self.cfg['texts']['prename']['width'], self.cfg['texts']['prename']['height']),self.prename,(16),font=prenameFont)
+        draw.text((self.cfg['texts']['title']['width'],
+                   self.cfg['texts']['title']['height']),
+                  self.title,
+                  (self.cfg['texts']['title']['color']),
+                  font=titleFont)
+        draw.text((self.cfg['texts']['surname']['width'],
+                   self.cfg['texts']['surname']['height']),
+                  self.surname,
+                  (self.cfg['texts']['surname']['color']),
+                  font=surnameFont)
+        draw.text((self.cfg['texts']['prename']['width'],
+                   self.cfg['texts']['prename']['height']),
+                  self.prename,
+                  (self.cfg['texts']['prename']['color']),
+                  font=prenameFont)
 
         self.log.debug("[Render] Rendered image")
 
         return image
 
     def run(self):
-        myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'), self.title.encode('utf-8'), self.surname.encode('utf-8'), self.prename.encode('utf-8'))).hexdigest()
-        outfile = os.path.join(self.destinationPath, "%s.%s" % (myHash, self.extension))
+        myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'),
+                                           self.title.encode('utf-8'),
+                                           self.surname.encode('utf-8'),
+                                           self.prename.encode('utf-8'))).hexdigest()
+        outfile = os.path.join(self.destinationPath, "%s.%s" % (myHash,
+                                                                self.extension))
 
         self.log.debug("[Render] Surname:      %s" % (self.surname))
         self.log.debug("[Render] Prename:      %s" % (self.prename))
@@ -92,7 +114,9 @@ class PyTanarisLogo(object):
         if os.path.isfile(outfile):
             self.log.debug("[Render] Already existing file: %s" % (outfile))
         else:
-            self.log.info("[Render] Rendering image for %s: %s %s" % (self.title, self.surname, self.prename))
+            self.log.info("[Render] Rendering image for %s: %s %s" % (self.title,
+                                                                      self.surname,
+                                                                      self.prename))
 
             image = self.renderImage()
 
