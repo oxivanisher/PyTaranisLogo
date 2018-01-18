@@ -221,6 +221,7 @@ def index():
     values['sites'] = cfg['sites']
     values['adsense_client'] = cfg['adsense_client']
     values['adsense_slot'] = cfg['adsense_slot']
+    values['guideUrl'] = cfg['defaults']['guideUrl']
 
     return render_template('index.html', values=values)
 

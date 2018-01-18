@@ -4,6 +4,7 @@ defaults:
   defaultFavicon: https://example.com/favicon.ico
   resourcesPath: resources/
   destinationPath: output/
+  guideUrl: https://ask.oxi.ch/t/personalisiertes-boot-startup-logo-einrichten-taranis/417
   prename: Hans
   surname: Mustermann
 instances:
