@@ -79,6 +79,7 @@ def getInstanceSettings():
     for instance in cfg['instances']:
         for url in cfg['instances'][instance]['urls']:
             if request.host == url:
+                app.logger.info("loading settings for instance %s" % cfg['instance'][instance]['titleText'])
                 inst = cfg['instances'][instance]
 
     # check for flavour
