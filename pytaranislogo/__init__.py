@@ -6,7 +6,7 @@ import sys
 import logging
 import time
 
-from utils import *
+from .utils import *
 
 logging.basicConfig(format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
 
