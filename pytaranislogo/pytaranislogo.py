@@ -3,16 +3,11 @@
 
 # imports
 import sys
-#import os
 import logging
 import time
 
 from utils import *
 
-# logging to file
-#myPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
-#logPath = os.path.join(myPath, 'log/pytaranislogo.log')
-#logging.basicConfig(filename=logPath, format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
 logging.basicConfig(format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
 
 log = logging.getLogger(__name__)
@@ -33,9 +28,6 @@ except ImportError:
 
 # setup flask app
 app = Flask(__name__)
-
-# setup logging
-# log = app.logger
 
 Compress(app)
 app.config['scriptPath'] = os.path.dirname(os.path.realpath(__file__))

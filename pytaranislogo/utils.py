@@ -6,12 +6,8 @@
 from PIL import Image, ImageFont, ImageDraw
 
 import os
-#import sys
 import hashlib
-import logging
 import yaml
-
-# logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=self.log.DEBUG)
 
 class PyTanarisLogo(object):
 
