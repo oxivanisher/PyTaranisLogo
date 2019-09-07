@@ -227,7 +227,7 @@ def setFlavour():
 def image_render():
     def genDlName(title, logoImage, surname, prename, fileExtension):
         def cleanup(string):
-            return string.lower().replace(' ', '_').encode('utf-8')
+            return string.lower().replace(' ', '_')
         return "%s-%s-%s-%s.%s" % (cleanup(title),
                                    cleanup(logoImage),
                                    cleanup(surname),
