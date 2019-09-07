@@ -1,4 +1,3 @@
-#FROM python:3-slim
 FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 RUN apk --update add bash nano
 VOLUME ["/app/pytaranislogo/static", "/app/config", "/app/resources"]
@@ -15,6 +14,7 @@ COPY config/settings.yml.example /app/config/settings.yml
 COPY dist/pytaranislogo.cfg.example /app/config/pytaranislogo.cfg
 
 
+# FROM python:3-slim
 # ENV FLASK_APP pytaranislogo.py
 # MAINTAINER Marc Urben "aegnor@mittelerde.ch"
 # RUN apt update -y

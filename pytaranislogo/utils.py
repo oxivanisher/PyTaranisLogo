@@ -90,17 +90,14 @@ class PyTanarisLogo(object):
         return image
 
     def run(self):
-        myHash = hashlib.md5("%s%s%s%s" % (self.sourcefile.encode('utf-8'),
-                                           self.title.encode('utf-8'),
-                                           self.surname.encode('utf-8'),
-                                           self.prename.encode('utf-8'))).hexdigest()
-        outfile = os.path.join(self.destinationPath, "%s.%s" % (myHash,
-                                                                self.extension))
+        tmp_name = "%s%s%s%s" % (self.sourcefile, self.title, self.surname, self.prename)
+        my_hash = hashlib.md5(tmp_name.encode('utf-8')).hexdigest()
+        outfile = os.path.join(self.destinationPath, "%s.%s" % (my_hash, self.extension))
 
         self.log.debug("[Render] Surname:      %s" % (self.surname))
         self.log.debug("[Render] Prename:      %s" % (self.prename))
         self.log.debug("[Render] Title:        %s" % (self.title))
-        self.log.debug("[Render] Hash:         %s" % (myHash))
+        self.log.debug("[Render] Hash:         %s" % (my_hash))
         self.log.debug("[Render] Sourcefile:   %s" % (self.sourcefile))
         self.log.debug("[Render] Outfile:      %s" % (outfile))
 
@@ -119,7 +116,7 @@ class PyTanarisLogo(object):
             except IOError:
                 self.log.error("[Render] Cannot save to: %s" % (outfile))
 
-        return myHash
+        return my_hash
 
 if __name__ == "__main__":
     plr = PyTanarisLogo()
