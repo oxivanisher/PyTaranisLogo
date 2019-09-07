@@ -1,16 +1,17 @@
 #FROM python:3-slim
 FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 RUN apk --update add bash nano
+VOLUME ["/app/pytaranislogo/static", "/app/config", "/app/resources"]
 ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
 COPY ./requirements.txt /var/www/requirements.txt
 RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip install -r /var/www/requirements.txt
-COPY main.py /var/www/main.py
-COPY pytaranislogo/ /var/www/pytaranislogo/
-COPY config/settings.yml.example /var/www/pytaranislogo/config/settings.yml
-COPY dist/pytaranislogo.cfg.example /var/www/pytaranislogo/config/pytaranislogo.cfg
+COPY main.py /app/main.py
+COPY pytaranislogo/ /app/pytaranislogo/
+COPY config/settings.yml.example /app/config/settings.yml
+COPY dist/pytaranislogo.cfg.example /app/config/pytaranislogo.cfg
 
 
 # ENV FLASK_APP pytaranislogo.py
