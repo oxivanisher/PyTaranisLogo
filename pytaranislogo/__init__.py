@@ -26,6 +26,24 @@ except ImportError:
     log.error("[System] Please install the flask extension: Flask-Compress")
     sys.exit(2)
 
+from logging.config import dictConfig
+
+dictConfig({
+    'version': 1,
+    'formatters': {'default': {
+        'format': '[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
+    }},
+    'handlers': {'wsgi': {
+        'class': 'logging.StreamHandler',
+        'formatter': 'default'
+    }},
+    'root': {
+        'level': 'DEBUG',
+        'handlers': ['wsgi']
+    }
+})
+
+
 # setup flask app
 app = Flask(__name__)
 
