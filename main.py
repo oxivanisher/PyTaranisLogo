@@ -1,0 +1,1 @@
+from pytaranislogo import app
