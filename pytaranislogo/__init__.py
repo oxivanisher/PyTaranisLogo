@@ -79,13 +79,13 @@ def getInstanceSettings():
     instance_found = False
     for instance in cfg['instances']:
         for url in cfg['instances'][instance]['urls']:
-            if request.url_root == url:
+            if request.url == url:
                 app.logger.info("loading settings for instance %s" % cfg['instance'][instance]['titleText'])
                 inst = cfg['instances'][instance]
                 instance_found = True
 
     if not instance_found:
-        app.logger.warning("unable to find instance for url %s" % request.url_root)
+        app.logger.warning("unable to find instance for url %s" % request.url)
 
     # check for flavour
     flavour = session.get('flavour', None)
