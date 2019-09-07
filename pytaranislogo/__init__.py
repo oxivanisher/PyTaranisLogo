@@ -85,7 +85,7 @@ def getInstanceSettings():
                 instance_found = True
 
     if not instance_found:
-        app.logger.warning("unable to find instance for url %s" % request.headers['Host'])
+        app.logger.warning("unable to find instance for url %s" % request.headers)
 
     # check for flavour
     flavour = session.get('flavour', None)
