@@ -109,7 +109,7 @@ def getInstanceSettings():
     for instance in cfg['instances']:
         selected = False
         for url in cfg['instances'][instance]['urls']:
-            if request.host == url:
+            if request.headers['X-Forwarded-Host'] == url:
                 selected = True
                 cfg['adsense_client'] = cfg['instances'][instance]['adsense']['client']
                 cfg['adsense_slot'] = cfg['instances'][instance]['adsense']['slot']
