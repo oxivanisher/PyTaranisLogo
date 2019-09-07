@@ -7,6 +7,7 @@ COPY ./requirements.txt /var/www/requirements.txt
 RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip install -r /var/www/requirements.txt
+COPY main.py /var/www/main.py
 COPY pytaranislogo/ /var/www/pytaranislogo/
 COPY config/settings.yml.example /var/www/pytaranislogo/config/settings.yml
 COPY dist/pytaranislogo.cfg.example /var/www/pytaranislogo/config/pytaranislogo.cfg
