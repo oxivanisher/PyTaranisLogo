@@ -80,8 +80,8 @@ def getInstanceSettings():
     for instance in cfg['instances']:
         for url in cfg['instances'][instance]['urls']:
             if request.headers['X-Forwarded-Host'] == url:
-                app.logger.info("loading settings for instance %s" % cfg['instance'][instance]['titleText'])
                 inst = cfg['instances'][instance]
+                app.logger.info("loaded settings for instance %s" % inst['titleText'])
                 instance_found = True
 
     if not instance_found:
