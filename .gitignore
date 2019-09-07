@@ -4,6 +4,8 @@ pytaranislogo/static/img/*
 resources/*
 dist/*.cfg
 config/*.yml
+data/resources/*
+data/static/*
 *.sublime-*
 
 # Byte-compiled / optimized / DLL files

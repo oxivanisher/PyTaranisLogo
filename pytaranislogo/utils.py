@@ -3,12 +3,10 @@
 
 #http://effbot.org/imagingbook/introduction.htm
 
-import Image
-import ImageFont
-import ImageDraw
+from PIL import Image, ImageFont, ImageDraw
 
 import os
-import sys
+#import sys
 import hashlib
 import logging
 import yaml

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  pytaranislogo:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - "./data/static:/app/pytaranislogo/static"
+      - "./data/resources:/app/resources"
+      - "./config/settings.yml:/app/config/settings.yml"
+      - "./config/pytaranislogo.cfg:/app/config/pytaranislogo.cfg"

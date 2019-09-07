@@ -3,16 +3,17 @@
 
 # imports
 import sys
-import os
+#import os
 import logging
 import time
 
 from utils import *
 
 # logging to file
-myPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
-logPath = os.path.join(myPath, 'log/pytaranislogo.log')
-logging.basicConfig(filename=logPath, format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
+#myPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
+#logPath = os.path.join(myPath, 'log/pytaranislogo.log')
+#logging.basicConfig(filename=logPath, format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)-7s %(message)s', datefmt='%Y-%d-%m %H:%M:%S', level=logging.INFO)
 
 log = logging.getLogger(__name__)
 log.info("[System] PyTaranisLogo system is starting up")
@@ -76,7 +77,7 @@ def getInstanceSettings():
     filePath = os.path.join(app.config['scriptPath'], '..', 'config', 'settings.yml')
     with open(filePath, 'r') as f:
         app.logger.debug("[System] Loading configuration")
-        cfg = yaml.load(f)
+        cfg = yaml.load(f, Loader=yaml.SafeLoader)
 
     # setting some defaults
     cfg['favicon'] = cfg['defaults']['defaultFavicon']
@@ -93,7 +94,7 @@ def getInstanceSettings():
     if flavour not in inst['flavours'].keys():
         flavour = None
     if not flavour:
-        flavour = inst['flavours'].keys()[0]
+        flavour = list(inst['flavours'].keys())[0]
 
     # set the dynamic instance variables
     cfg['logoImage'] = inst['flavours'][flavour]['logoImage']
