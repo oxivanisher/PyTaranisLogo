@@ -3,7 +3,7 @@ services:
   pytaranislogo:
     build: .
     ports:
-      - "80:80"
+      - "3033:80"
     volumes:
       - "./pytaranislogo/static:/app/pytaranislogo/static"
       - "./resources:/app/resources"
