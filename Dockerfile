@@ -4,6 +4,7 @@ RUN apk --update add bash nano
 VOLUME ["/app/pytaranislogo/static", "/app/config", "/app/resources"]
 ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
+ENV TARANISLOGO_CFG /app/config/pytaranislogo.cfg
 COPY ./requirements.txt /var/www/requirements.txt
 RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
