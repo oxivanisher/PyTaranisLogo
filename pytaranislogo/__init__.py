@@ -174,6 +174,11 @@ def favicon():
     cfg = getInstanceSettings()
     return redirect(cfg['favicon'])
 
+@app.route('/ads.txt')
+def get_ads_txt():
+    cfg = getInstanceSettings()
+    return "google.com, %s, DIRECT, f08c47fec0942fa0" % cfg['adsense_client']
+
 @app.route('/background')
 def background_image():
     cfg = getInstanceSettings()
