@@ -3,6 +3,7 @@ This tool lets you create custom taranis boot/start images. The dimensions for t
 * Taranis X9: 212X64px 4bit PNG greyscaled bitmap
 * Taranis X10: 480*272px ?
 * Taranis X12: ?
+* Jumper T16: 480x272 (color png)
 
 ## How to install
 * Setup things dist/pytaranislogo.cfg (copy from pytaranislogo.cfg.example)
