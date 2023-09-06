@@ -1,4 +1,4 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+FROM tiangolo/uwsgi-nginx-flask:latest
 RUN apk --update add bash nano
 VOLUME ["/app/pytaranislogo/static", "/app/config", "/app/resources"]
 ENV STATIC_URL /static
