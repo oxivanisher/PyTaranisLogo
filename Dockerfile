@@ -5,6 +5,7 @@ ENV STATIC_PATH /app/pytaranislogo/static
 ENV TARANISLOGO_CFG /app/config/pytaranislogo.cfg
 COPY ./requirements.txt /var/www/requirements.txt
 # RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev freetype-dev
+RUN apt install -y libjpeg-dev zlib1g-dev libfreetype-dev
 RUN apt install -y python3-dev libjpeg-dev zlib1g-dev libfreetype-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip install --no-cache-dir -r /var/www/requirements.txt
