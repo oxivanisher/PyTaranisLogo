@@ -3,7 +3,8 @@ services:
   pytaranislogo:
     container_name: pytaranislogo
     restart: unless-stopped
-    build: .
+    image: ghcr.io/oxivanisher/pytaranislogo:master
+    # build: .
     ports:
       - "80:80"
     volumes:
